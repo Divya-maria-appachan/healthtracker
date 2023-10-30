@@ -1,0 +1,140 @@
+openapi: 3.0.3
+info:
+  title: Health Tracker API
+  description: This is an API that provides health tracker CRUD operations.
+  version: 1.0.0
+  contact:
+    name: Divya Maria Appachan
+    email: 20105240@mail.wit.ie
+paths:
+  /api/users/{user-id}:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+      responses:
+        200:
+          description: This is a specific user in the app
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /api/users:
+    get:
+      responses:
+        200:
+          description: This is a list of the users in the app
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserList'
+    post:
+      description: Create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        201:
+          description: User created successfully
+  /api/users/{user-id}/activities:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+      responses:
+        200:
+          description: Get activities for a specific user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActivityList'
+  /api/users/{user-id}/activities/{activity-id}:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/activityIdParam'
+      responses:
+        200:
+          description: Get a specific activity for a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+    delete:
+        description: Delete a specific activity for a user
+        responses:
+          204:
+            description: Activity deleted successfully
+
+  /api/users/email/{email}:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/emailParam'
+      responses:
+        200:
+          description: Get a user by email
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+components:
+  parameters:
+    userIdParam:
+      in: path
+      name: user-id
+      required: true
+      schema:
+        type: integer
+        example: 3232
+    activityIdParam:
+      in: path
+      name: activity-id
+      required: true
+      schema:
+        type: integer
+        example: 12345
+    emailParam:
+      in: path
+      name: email
+      required: true
+      schema:
+        type: string
+        example: joe@soap.com
+
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 3232
+        name:
+          type: string
+          example: Joe Soap
+        email:
+          type: string
+          example: joe@soap.com
+
+    UserList:
+      type: array
+      items:
+        $ref: '#/components/schemas/User'
+
+    Activity:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 12345
+        name:
+          type: string
+          example: Running
+
+    ActivityList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Activity'
+
+  
