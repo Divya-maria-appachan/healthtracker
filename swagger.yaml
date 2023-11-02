@@ -8,9 +8,9 @@ info:
     email: 20105240@mail.wit.ie
 paths:
   /api/users/{user-id}:
+    parameters:
+      - $ref: '#/components/parameters/userIdParam'
     get:
-      parameters:
-        - $ref: '#/components/parameters/userIdParam'
       responses:
         200:
           description: This is a specific user in the app
@@ -18,6 +18,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+    delete:
+      description: Delete a specific user
+      responses:
+        204:
+          description: User deleted successfully
+    patch:
+      description: Update a specific user
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User' # Assuming you are using the same User schema for updates
+      responses:
+        200:
+          description: User updated successfully
+
   /api/users:
     get:
       responses:
@@ -49,23 +68,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActivityList'
-  /api/users/{user-id}/activities/{activity-id}:
-    get:
-      parameters:
-        - $ref: '#/components/parameters/userIdParam'
-        - $ref: '#/components/parameters/activityIdParam'
-      responses:
-        200:
-          description: Get a specific activity for a user
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Activity'
-    delete:
-        description: Delete a specific activity for a user
-        responses:
-          204:
-            description: Activity deleted successfully
+
 
   /api/users/email/{email}:
     get:
@@ -78,6 +81,57 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+  /api/activities:
+    get:
+      responses:
+        200:
+          description: Get a list of all activities
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActivityList'
+    post:
+      description: Create a new activity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Activity'
+      responses:
+        201:
+          description: Activity created successfully
+  /api/activities/{activity-id}:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/activityIdParam'
+      responses:
+        200:
+          description: Get a specific activity by ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+    delete:
+      description: Delete a specific activity by ID
+      parameters:
+        - $ref: '#/components/parameters/activityIdParam'
+      responses:
+        204:
+          description: Activity deleted successfully
+    patch:
+      description: Update a specific activity by ID
+      parameters:
+        - $ref: '#/components/parameters/activityIdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Activity' # Assuming you are using the same Activity schema for updates
+      responses:
+        200:
+          description: Activity updated successfully
 
 components:
   parameters:
