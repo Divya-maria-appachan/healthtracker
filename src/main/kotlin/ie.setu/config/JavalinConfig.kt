@@ -1,6 +1,7 @@
 package ie.setu.config
 
-import ie.setu.controllers.HealthTrackerController
+import ie.setu.controllers.ActivityController
+import ie.setu.controllers.UserController
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.*
 
@@ -10,11 +11,42 @@ class JavalinConfig {
 
         val app = Javalin.create().apply {
             exception(Exception::class.java) { e, _ -> e.printStackTrace() }
-            error(404) { ctx -> ctx.json("404 : Not Found") }
+            error(404) { ctx -> ctx.json("404 - Not Found") }
         }.start(getRemoteAssignedPort())
 
         registerRoutes(app)
         return app
+    }
+
+    private fun registerRoutes(app: Javalin) {
+        app.routes {
+            path("/api/users") {
+                get(UserController::getAllUsers)
+                post(UserController::addUser)
+                path("{user-id}"){
+                    get(UserController::getUserByUserId)
+                    delete(UserController::deleteUser)
+                    patch(UserController::updateUser)
+                    path("activities"){
+                        get(ActivityController::getActivitiesByUserId)
+                        delete(ActivityController::deleteActivityByUserId)
+                    }
+                }
+                path("/email/{email}"){
+                    get(UserController::getUserByEmail)
+                }
+            }
+            path("/api/activities") {
+                get(ActivityController::getAllActivities)
+                post(ActivityController::addActivity)
+                path("{activity-id}") {
+                    get(ActivityController::getActivityById)
+                    delete(ActivityController::deleteActivityByActivityId)
+                    patch(ActivityController::updateActivity)
+                }
+            }
+
+        }
     }
 
     private fun getRemoteAssignedPort(): Int {
@@ -23,39 +55,4 @@ class JavalinConfig {
             Integer.parseInt(remotePort)
         } else 7000
     }
-
-    private fun registerRoutes(app: Javalin) {
-        app.routes {
-            path("/api/users") {
-                get(HealthTrackerController::getAllUsers)
-                post(HealthTrackerController::addUser)
-                path("{user-id}"){
-                    get(HealthTrackerController::getUserByUserId)
-                    delete(HealthTrackerController::deleteUser)
-                    patch(HealthTrackerController::updateUser)
-                    //The overall path is: "/api/users/:user-id/activities"
-                    path("activities"){
-                        get(HealthTrackerController::getActivitiesByUserId)
-                        delete(HealthTrackerController::deleteActivityByUserId)
-                    }
-                }
-                path("/email/{email}"){
-                    get(HealthTrackerController::getUserByEmail)
-                }
-            }
-            path("/api/activities") {
-                get(HealthTrackerController::getAllActivities)
-                post(HealthTrackerController::addActivity)
-                path("{activity-id}") {
-                    get(HealthTrackerController::getActivityById)
-                    delete(HealthTrackerController::deleteActivityByActivityId)
-                    patch(HealthTrackerController::updateActivity)
-                }
-            }
-            path("api/bmi"){
-
-            }
-        }
-    }
-
 }
