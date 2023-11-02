@@ -11,7 +11,7 @@ import ie.setu.utils.jsonToObject
 import io.javalin.http.Context
 
 
-object HealthTrackerController {
+object UserController {
 
     private val userDao = UserDAO()
     private val activityDAO = ActivityDAO()
