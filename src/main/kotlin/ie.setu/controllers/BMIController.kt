@@ -10,8 +10,8 @@ object BMIController {
         try {
             val newBmiData = jsonToObject<Bmi>(ctx.body())
             val bmi = BmiDAO.calculateBmi(newBmiData.weight, newBmiData.height)
-            val Bmiresult =BmiDAO.Bmiresult(bmi)
-            ctx.json(mapOf("bmi" to bmi, "Bmiresult" to Bmiresult))
+            val result =BmiDAO.Bmiresult(bmi)
+            ctx.json(mapOf("bmi" to bmi, "Bmiresult" to result))
             Bmi = newBmiData
         } catch (e: Exception) {
             ctx.status(400).result("Invalid input: ${e.message}")

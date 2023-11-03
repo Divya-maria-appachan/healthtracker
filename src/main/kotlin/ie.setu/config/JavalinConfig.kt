@@ -3,16 +3,21 @@ package ie.setu.config
 import ie.setu.controllers.ActivityController
 import ie.setu.controllers.BMIController
 import ie.setu.controllers.UserController
+import ie.setu.utils.jsonObjectMapper
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.*
+import io.javalin.json.JavalinJackson
 
 class JavalinConfig {
 
     fun startJavalinService(): Javalin {
 
-        val app = Javalin.create().apply {
+        val app = Javalin.create{
+            //added this jsonMapper for our integration tests - serialise objects to json
+            it.jsonMapper(JavalinJackson(jsonObjectMapper()))
+        }.apply {
             exception(Exception::class.java) { e, _ -> e.printStackTrace() }
-            error(404) { ctx -> ctx.json("404 - Not Found") }
+            error(404) { ctx -> ctx.json("404 : Not Found") }
         }.start(getRemoteAssignedPort())
 
         registerRoutes(app)
