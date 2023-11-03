@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d9ce8a4-8a5f-498a-94a9-37768e2515b9" name="Changes" comment="Add activity feature">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/ActivityController.kt" afterDir="false" />
+    <list default="true" id="6d9ce8a4-8a5f-498a-94a9-37768e2515b9" name="Changes" comment="Add BMI calculator">
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/HealthTrackerControllerTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/ServerContainer.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/testUtility.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/config/JavalinConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/HealthTrackerController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/UserController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/ActivityController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/ActivityController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/BMIController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/BMIController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/UserController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/Bmi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/Bmi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/ActivityDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/ActivityDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/UserDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/UserDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/Fixtures.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/Fixtures.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/repositary/ActivityDAOTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/repositary/ActivityDAOTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +28,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="OpenAPI" />
+        <option value="Kotlin Object" />
+        <option value="Kotlin Data Class" />
         <option value="Kotlin Class" />
         <option value="Kotlin File" />
-        <option value="Kotlin Object" />
       </list>
     </option>
   </component>
@@ -35,7 +44,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="healthtracker_V3.0" />
+        <entry key="$PROJECT_DIR$" value="healthtracker_V4.1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,7 +84,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "healthtracker__V3.1",
+    "git-widget-placeholder": "healthtracker__V4.0",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -92,6 +101,7 @@
       <recent name="C:\Users\divya\SETU\2023-2024\agile-workspace\healthtrackerrest\src\main\kotlin\ie.setu\domain" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="ie.setu.domain" />
       <recent name="ie.setu.controllers" />
     </key>
   </component>
@@ -178,7 +188,7 @@
       <workItem from="1698766909419" duration="3725000" />
       <workItem from="1698836088617" duration="2506000" />
       <workItem from="1698916038223" duration="12293000" />
-      <workItem from="1698931820913" duration="20152000" />
+      <workItem from="1698931820913" duration="57387000" />
     </task>
     <task id="LOCAL-00001" summary="v1.0">
       <option name="closed" value="true" />
@@ -204,7 +214,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698963747695</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Separate  UserController and ActivityController classes">
+      <option name="closed" value="true" />
+      <created>1698967801890</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1698967801890</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add BMI calculator">
+      <option name="closed" value="true" />
+      <created>1698983205183</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698983205183</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +263,9 @@
     <MESSAGE value="v1.0" />
     <MESSAGE value="Connect to ElephantSQL bd" />
     <MESSAGE value="Add activity feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add activity feature" />
+    <MESSAGE value="Separate  UserController and ActivityController classes" />
+    <MESSAGE value="Add BMI calculator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add BMI calculator" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/healthtrackerrest$UserDAOTest.ic" NAME="UserDAOTest Coverage Results" MODIFIED="1698767656894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
