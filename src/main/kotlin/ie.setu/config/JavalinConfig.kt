@@ -1,6 +1,7 @@
 package ie.setu.config
 
 import ie.setu.controllers.ActivityController
+import ie.setu.controllers.BMIController
 import ie.setu.controllers.UserController
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.*
@@ -44,6 +45,9 @@ class JavalinConfig {
                     delete(ActivityController::deleteActivityByActivityId)
                     patch(ActivityController::updateActivity)
                 }
+            }
+            path("/api/bmi"){
+                post(BMIController::calculateBmi)
             }
 
         }
