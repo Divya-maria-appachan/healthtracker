@@ -72,6 +72,13 @@ class JavalinConfig {
             path("/api/tip"){
                 post(HealthTipController::addTips)
                 get(HealthTipController::getTips)
+                path("{tip-id}"){
+                    patch(HealthTipController::updateTips)
+                }
+            }
+            path("/api/tips"){
+                get(HealthTipController::getAllTips)
+
             }
 
         }
