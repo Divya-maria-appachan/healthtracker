@@ -33,6 +33,11 @@ class JavalinConfig {
                     get(UserController::getUserByUserId)
                     delete(UserController::deleteUser)
                     patch(UserController::updateUser)
+                    path("bmi"){
+                        get(BMIController::getBmiByUserId)
+                        delete(BMIController::deleteBmiByUserId)
+
+                    }
                     path("activities"){
                         get(ActivityController::getActivitiesByUserId)
                         delete(ActivityController::deleteActivityByUserId)
@@ -53,6 +58,11 @@ class JavalinConfig {
             }
             path("/api/bmi"){
                 post(BMIController::calculateBmi)
+                get(BMIController::getAllBmi)
+                path("{bmi-id}"){
+                    get(BMIController::getByBmiId)
+                    delete(BMIController::deleteBmiId)
+                }
             }
 
         }

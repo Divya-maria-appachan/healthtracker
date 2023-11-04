@@ -1,11 +1,14 @@
 package ie.setu.domain
 
+import org.joda.time.DateTime
+
 data class Bmi(
-    var id: Int,
+    var id: Int?,
     var weight: Double,
     var height: Double,
-    var bmi: Double,
-    var bmiResult:String,
-    var userId: Int
-
+    var userId: Int,
+    val bmiCalculator: String,
+    var timestamp: DateTime
 )
+
+
