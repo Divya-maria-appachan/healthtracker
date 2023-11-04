@@ -20,6 +20,7 @@ val updatedDuration = 30.0
 val updatedCalories = 500
 val updatedStarted = DateTime.parse("2020-06-11T05:59:27.258Z")
 
+
 val users = arrayListOf<User>(
     User(name = "Alice Wonderland", email = "alice@wonderland.com", id = 1),
     User(name = "Bob Cat", email = "bob@cat.ie", id = 2),

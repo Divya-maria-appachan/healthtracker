@@ -2,6 +2,7 @@ package ie.setu.config
 
 import ie.setu.controllers.ActivityController
 import ie.setu.controllers.BMIController
+import ie.setu.controllers.HealthTipController
 import ie.setu.controllers.UserController
 import ie.setu.utils.jsonObjectMapper
 import io.javalin.Javalin
@@ -57,12 +58,20 @@ class JavalinConfig {
                 }
             }
             path("/api/bmi"){
-                post(BMIController::calculateBmi)
                 get(BMIController::getAllBmi)
+                post(BMIController::calculateBmi)
+
                 path("{bmi-id}"){
                     get(BMIController::getByBmiId)
                     delete(BMIController::deleteBmiId)
                 }
+
+
+
+            }
+            path("/api/tip"){
+                post(HealthTipController::addTips)
+                get(HealthTipController::getTips)
             }
 
         }
