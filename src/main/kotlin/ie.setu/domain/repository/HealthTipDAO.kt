@@ -27,7 +27,7 @@ class HealthTipDAO {
     fun getRandom(): List<HealthTip> {
         val tablesize = getAllTip().size
         if (tablesize > 1) {
-            val randomId = Random.nextInt(1, tablesize)
+            val randomId = Random.nextInt(1, tablesize) // Call the getRandom function
             return transaction {
                 HealthTips
                     .select { HealthTips.id eq randomId }

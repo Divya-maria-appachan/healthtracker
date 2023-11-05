@@ -83,7 +83,7 @@ class BmiDAO {
         }
 
         val heightInMeters = height / 100.0
-        return ( weight / (heightInMeters * heightInMeters)).toString()
+        return ( weight / (heightInMeters * heightInMeters)).toString()// Calculate BMI using the formula: weight (kg) / (height (m) * height (m))
     }
 
 
