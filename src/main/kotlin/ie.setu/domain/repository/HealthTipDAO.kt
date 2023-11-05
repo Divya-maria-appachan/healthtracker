@@ -12,7 +12,7 @@ import org.jetbrains.exposed.sql.update
 import kotlin.random.Random
 
 
-@Suppress("UNREACHABLE_CODE")
+
 class HealthTipDAO {
     // Add a new health tip to the database
     fun addHealthTip(healthtip: HealthTip): Int? {
@@ -25,36 +25,45 @@ class HealthTipDAO {
     }
 
     fun getRandom(): List<HealthTip> {
-        val randomId = Random.nextInt(1, 10)
-        return transaction {
-            HealthTips
-                .select { HealthTips.id eq randomId }
-                .map { mapToHealthTip(it) }
-
-
+        val tablesize = getAllTip().size
+        if (tablesize > 1) {
+            val randomId = Random.nextInt(1, tablesize)
+            return transaction {
+                HealthTips
+                    .select { HealthTips.id eq randomId }
+                    .map { mapToHealthTip(it) }
+            }
+        } else {
+            return transaction {
+                HealthTips
+                    .select { HealthTips.id eq 1 }
+                    .map { mapToHealthTip(it) }
+            }
         }
     }
         fun getAllTip(): ArrayList<HealthTip> {
             val HealthTipList: ArrayList<HealthTip> = arrayListOf()
             transaction {
                 HealthTips.selectAll().map {
-                    HealthTipList.add(mapToHealthTip(it)) }
+                    HealthTipList.add(mapToHealthTip(it))
+                }
             }
             return HealthTipList
         }
-        fun updateTip(tip_id: Int, healthtip: HealthTip): Int{
-        return transaction {
-            HealthTips.update ({
-                HealthTips.id eq tip_id}) {
-                it[id] = healthtip.id
-                it[tips] = healthtip.tips
+
+        fun updateTip(tip_id: Int, healthtip: HealthTip): Int {
+            return transaction {
+                HealthTips.update({
+                    HealthTips.id eq tip_id
+                }) {
+                    it[id] = healthtip.id
+                    it[tips] = healthtip.tips
+                }
             }
         }
+
+
     }
-
-
-
-}
 
 
 
