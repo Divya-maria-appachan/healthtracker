@@ -386,7 +386,7 @@ components:
           example: 175.0
         userId:
           type: integer
-          example: 3232
+          example: 3236
         bmiCalculator:
           type: string
           example: "BMI Calculator"
