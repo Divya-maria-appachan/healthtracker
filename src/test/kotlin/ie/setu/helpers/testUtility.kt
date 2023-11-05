@@ -94,4 +94,21 @@ object TestUtilities {
             """.trimIndent())
             .asJson()
     }
+    fun addTips (id: Int, tips: String): HttpResponse<JsonNode> {
+        return Unirest.post("$origin/api/tip")
+            .body("{\"id\":\"$id\", \"tips\":\"$tips\"}")
+            .asJson()
+    }
+    fun getTips() : HttpResponse<String> {
+        return Unirest.get(origin + "/api/tip").asString()
+    }
+    fun getAllTips(): HttpResponse<JsonNode> {
+        return Unirest.get("$origin/api/tips").asJson()
+    }
+    fun updateTips(id: Int, tips: String, email: String): HttpResponse<JsonNode> {
+        return Unirest.patch("$origin/api/tip/$id")
+            .body("{\"id\":\"$id\", \"tips\":\"$tips\"}")
+            .asJson()
+    }
+
 }

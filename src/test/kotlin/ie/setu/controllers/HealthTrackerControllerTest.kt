@@ -2,6 +2,7 @@ package ie.setu.controllers
 
 import ie.setu.config.DbConfig
 import ie.setu.domain.Activity
+import ie.setu.domain.HealthTip
 import ie.setu.domain.User
 import ie.setu.helpers.*
 import ie.setu.helpers.TestUtilities.addActivity
@@ -425,4 +426,19 @@ class HealthTrackerControllerTest {
         }
     }
 
+    @Nested
+    inner class ReadHealthtips {
+        @Test
+        fun `get all tips from the database returns 200 or 404 response`() {
+
+            val response = Unirest.get(origin + "/api/tips").asString()
+            if (response.status == 200) {
+                val getAllTips: ArrayList<HealthTip> = jsonToObject(response.body.toString())
+                assertNotEquals(0, getAllTips.size)
+            } else {
+                assertEquals(404, response.status)
+            }
+        }
+    }
 }
+
