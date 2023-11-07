@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d9ce8a4-8a5f-498a-94a9-37768e2515b9" name="Changes" comment="Add swagger endpoints">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger.yaml" afterDir="false" />
+    <list default="true" id="6d9ce8a4-8a5f-498a-94a9-37768e2515b9" name="Changes" comment="Add test coverage and test">
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +13,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExportToHTMLSettings">
-    <option name="OUTPUT_DIRECTORY" value="C:\Users\divya\OneDrive\Desktop" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\divya\SETU\2023-2024\agile-workspace\healthtrackerrest\htmlReport" />
+  </component>
+  <component name="FileColors">
+    <fileColor scope="All Changed Files" color="1e36ff" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -36,7 +38,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="healthtracker_V5.2" />
+        <entry key="$PROJECT_DIR$" value="healthtracker_V-5.2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -74,9 +76,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "healthtracker__V-5.2",
-    "last_opened_file_path": "C:/Users/divya/OneDrive/Desktop",
+    "git-widget-placeholder": "healthtracker__V5.3",
+    "last_opened_file_path": "C:/Users/divya/SETU/2023-2024/agile-workspace/healthtrackerrest/htmlReport",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -85,7 +88,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.general",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -99,34 +102,10 @@
       <recent name="ie.setu.controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HealthTipDAOTest">
-    <configuration name="ActivityDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="healthtrackerrest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ie.setu.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="ie.setu.domain.repository.ActivityDAO" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ie.setu.repository" />
-      <option name="MAIN_CLASS_NAME" value="ie.setu.repository.ActivityDAOTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.HealthTrackerControllerTest">
     <configuration name="BmiDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthtrackerrest" />
       <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ie.setu.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
         <pattern>
           <option name="PATTERN" value="ie.setu.domain.repository.BmiDAO" />
           <option name="ENABLED" value="true" />
@@ -135,6 +114,21 @@
       <option name="PACKAGE_NAME" value="ie.setu.repository" />
       <option name="MAIN_CLASS_NAME" value="ie.setu.repository.BmiDAOTest" />
       <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HealthTipDAOTest$UpdateTips" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthtrackerrest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ie.setu.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ie.setu.repository.HealthTipDAOTest" />
+      <option name="MAIN_CLASS_NAME" value="ie.setu.repository.HealthTipDAOTest$UpdateTips" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -174,38 +168,35 @@
       </extension>
       <option name="PACKAGE_NAME" value="ie.setu.controllers" />
       <option name="MAIN_CLASS_NAME" value="ie.setu.controllers.HealthTrackerControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="healthtrackerrest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ie.setu.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="ie.setu.domain.repository.UserDAO" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ie.setu.repository" />
-      <option name="MAIN_CLASS_NAME" value="ie.setu.repository.UserDAOTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HealthTrackerControllerTest.get random from the database returns 200 or 404 response" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthtrackerrest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ie.setu.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ie.setu.controllers" />
+      <option name="MAIN_CLASS_NAME" value="ie.setu.controllers.HealthTrackerControllerTest" />
+      <option name="METHOD_NAME" value="get random from the database returns 200 or 404 response" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HealthTipDAOTest" />
-        <item itemvalue="JUnit.BmiDAOTest (1)" />
-        <item itemvalue="JUnit.UserDAOTest" />
-        <item itemvalue="JUnit.ActivityDAOTest" />
         <item itemvalue="JUnit.HealthTrackerControllerTest" />
+        <item itemvalue="JUnit.BmiDAOTest" />
+        <item itemvalue="JUnit.HealthTrackerControllerTest.get random from the database returns 200 or 404 response" />
+        <item itemvalue="JUnit.HealthTipDAOTest" />
+        <item itemvalue="JUnit.HealthTipDAOTest$UpdateTips" />
       </list>
     </recent_temporary>
   </component>
@@ -231,7 +222,9 @@
       <workItem from="1698836088617" duration="2506000" />
       <workItem from="1698916038223" duration="12293000" />
       <workItem from="1698931820913" duration="33866000" />
-      <workItem from="1699082042032" duration="82552000" />
+      <workItem from="1699082042032" duration="82913000" />
+      <workItem from="1699303414018" duration="1576000" />
+      <workItem from="1699346680109" duration="13720000" />
     </task>
     <task id="LOCAL-00001" summary="v1.0">
       <option name="closed" value="true" />
@@ -321,7 +314,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699175938130</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add test coverage">
+      <option name="closed" value="true" />
+      <created>1699290356151</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699290356153</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add test coverage and test">
+      <option name="closed" value="true" />
+      <created>1699366214345</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699366214345</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,16 +369,13 @@
     <MESSAGE value="Add get all and update operation" />
     <MESSAGE value="Add unit test for bmi and health operation" />
     <MESSAGE value="Add swagger endpoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add swagger endpoints" />
+    <MESSAGE value="Add test coverage" />
+    <MESSAGE value="Add test coverage and test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add test coverage and test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/BmiDAO.kt</url>
-          <line>85</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/ActivityDAO.kt</url>
           <line>40</line>
@@ -378,15 +384,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/HealthTrackerControllerTest.kt</url>
-          <line>431</line>
-          <properties class="ie.setu.controllers.HealthTrackerControllerTest.ReadHealthtips" method="get all tips from the database returns 200 or 404 response">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="75" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -400,6 +397,7 @@
       <FILTER>ie.setu.repository.*</FILTER>
       <FILTER>ie.setu.domain.repository.UserDAO</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/healthtrackerrest$AppKt.ic" NAME="AppKt Coverage Results" MODIFIED="1699309687894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/healthtrackerrest$HealthTipDAOTest_ReadHealthtips_get_random_health_tip_from_a_table_with_one_entry.ic" NAME="HealthTipDAOTest$ReadHealthtips.get random health tip from a table with one entry Coverage Results" MODIFIED="1699142722862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ie.setu.repository.*</FILTER>
     </SUITE>
@@ -407,11 +405,10 @@
       <FILTER>ie.setu.repository.*</FILTER>
       <FILTER>ie.setu.domain.repository.HealthTipDAO</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/healthtrackerrest$HealthTrackerControllerTest.ic" NAME="HealthTrackerControllerTest Coverage Results" MODIFIED="1699141620463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/healthtrackerrest$HealthTrackerControllerTest.ic" NAME="HealthTrackerControllerTest Coverage Results" MODIFIED="1699354866155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ie.setu.controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/healthtrackerrest$BmiDAOTest.ic" NAME="BmiDAOTest Coverage Results" MODIFIED="1699179078350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>ie.setu.repository.*</FILTER>
+    <SUITE FILE_PATH="coverage/healthtrackerrest$BmiDAOTest.ic" NAME="BmiDAOTest Coverage Results" MODIFIED="1699353090333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ie.setu.domain.repository.BmiDAO</FILTER>
     </SUITE>
   </component>

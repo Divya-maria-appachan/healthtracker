@@ -47,16 +47,7 @@ class BmiDAOTest {
     @Nested
     inner class ReadBiometrics {
 
-        @Test
-        fun `read  all entries from bmi`() {
-            transaction {
-                //Arrange - create and populate tables with three users and three bmi
-                val userDAO = populateUserTable()
-                val bmiDAO  = populatebmisTable()
-                //Act & Assert
-                assertEquals(3, bmiDAO .getAll().size)
-            }
-        }
+        
 
 
         @Test

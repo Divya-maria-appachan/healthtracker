@@ -105,7 +105,7 @@ object TestUtilities {
     fun getAllTips(): HttpResponse<JsonNode> {
         return Unirest.get("$origin/api/tips").asJson()
     }
-    fun updateTips(id: Int, tips: String, email: String): HttpResponse<JsonNode> {
+    fun updateTips(id: Int, tips: String): HttpResponse<JsonNode> {
         return Unirest.patch("$origin/api/tip/$id")
             .body("{\"id\":\"$id\", \"tips\":\"$tips\"}")
             .asJson()
