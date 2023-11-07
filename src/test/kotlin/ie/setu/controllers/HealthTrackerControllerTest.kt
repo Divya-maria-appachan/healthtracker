@@ -6,6 +6,7 @@ import ie.setu.domain.HealthTip
 import ie.setu.domain.User
 import ie.setu.helpers.*
 import ie.setu.helpers.TestUtilities.addActivity
+import ie.setu.helpers.TestUtilities.addTips
 import ie.setu.helpers.TestUtilities.addUser
 import ie.setu.helpers.TestUtilities.deleteActivitiesByUserId
 import ie.setu.helpers.TestUtilities.deleteActivityByActivityId
@@ -16,12 +17,12 @@ import ie.setu.helpers.TestUtilities.retrieveAllActivities
 import ie.setu.helpers.TestUtilities.retrieveUserByEmail
 import ie.setu.helpers.TestUtilities.retrieveUserById
 import ie.setu.helpers.TestUtilities.updateActivity
+import ie.setu.helpers.TestUtilities.updateTips
 import ie.setu.helpers.TestUtilities.updateUser
 import ie.setu.utils.jsonNodeToObject
 import ie.setu.utils.jsonToObject
 import kong.unirest.Unirest
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertNotEquals
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
@@ -440,5 +441,48 @@ class HealthTrackerControllerTest {
             }
         }
     }
+
+    @Test
+    fun `get random from the database returns 200 or 404 response`() {
+
+        val response = Unirest.get(origin + "/api/tip").asString()
+        if (response.status == 200) {
+            val getTips: ArrayList<HealthTip> = jsonToObject(response.body.toString())
+            assertTrue(getTips.size == 1)
+        } else {
+            assertEquals(404, response.status)
+        }
+    }
+
+    @Nested
+    inner class CreateTip {
+        @Test
+        fun `add a tips with correct details returns a 201 response`() {
+
+            //Arrange & Act & Assert
+            //    add the user and verify return code (using fixture data)
+            val addResponse = addTips(validId, validTip)
+            assertEquals(201, addResponse.status)
+
+
+        }
+    }
+    @Nested
+    inner class UpdateTips {
+
+
+        @Test
+        fun `updating a id when it doesn't exist, returns a 404 response`() {
+
+            //Act & Assert - attempt to update the email and name of user that doesn't exist
+            assertEquals(404, updateTips(-1, "Have a smile").status)
+        }
+
+
+    }
+
 }
+
+
+
 

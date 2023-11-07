@@ -20,8 +20,8 @@ val validName = "Test User 1"
 val validEmail = "testuser1@test.com"
 val updatedName = "Updated Name"
 val updatedEmail = "Updated Email"
-
-
+val validId = 13
+val validTip = "Exercise regularly."
 
 
 
