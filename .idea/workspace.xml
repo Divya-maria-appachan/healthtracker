@@ -4,8 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d9ce8a4-8a5f-498a-94a9-37768e2515b9" name="Changes" comment="Add test coverage and test">
+
+    <list default="true" id="6d9ce8a4-8a5f-498a-94a9-37768e2515b9" name="Changes" comment="Add swagger endpoints">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vue/components/app-layout.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vue/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vue/views/Tips-overview.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vue/views/home-page.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vue/views/user-activity-overview.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vue/views/user-bmi-overview.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vue/views/user-overview.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vue/views/user-profile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_11_2023_17_27_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_11_2023_17_27__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_11_2023_17_28_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_11_2023_17_28__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_CLASS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_LINE.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_LINE_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_METHOD.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_NAME_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_BLOCK.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_CLASS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_LINE.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_LINE_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_METHOD.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_NAME_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/config/JavalinConfig.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK.html" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,17 +119,23 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "healthtracker__V5.3",
-    "last_opened_file_path": "C:/Users/divya/SETU/2023-2024/agile-workspace/healthtrackerrest/htmlReport",
+
+    "git-widget-placeholder": "healthtracker__V-6",
+    "last_opened_file_path": "C:/Users/divya/OneDrive/Desktop"
+   
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
+
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\dev\\IntelliJ IDEA 2023.2.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+   
+
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -102,8 +149,10 @@
       <recent name="ie.setu.controllers" />
     </key>
   </component>
+
   <component name="RunManager" selected="JUnit.HealthTrackerControllerTest">
     <configuration name="BmiDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
       <module name="healthtrackerrest" />
       <extension name="coverage">
         <pattern>
@@ -119,7 +168,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration name="HealthTipDAOTest$UpdateTips" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
       <module name="healthtrackerrest" />
       <extension name="coverage">
         <pattern>
@@ -127,9 +178,11 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
       <option name="PACKAGE_NAME" value="ie.setu.repository.HealthTipDAOTest" />
       <option name="MAIN_CLASS_NAME" value="ie.setu.repository.HealthTipDAOTest$UpdateTips" />
       <option name="TEST_OBJECT" value="class" />
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -192,11 +245,12 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HealthTrackerControllerTest" />
-        <item itemvalue="JUnit.BmiDAOTest" />
-        <item itemvalue="JUnit.HealthTrackerControllerTest.get random from the database returns 200 or 404 response" />
+
+        <item itemvalue="JUnit.BmiDAOTest$ReadBiometrics.read  all entries from bmi" />
         <item itemvalue="JUnit.HealthTipDAOTest" />
-        <item itemvalue="JUnit.HealthTipDAOTest$UpdateTips" />
+        <item itemvalue="JUnit.UserDAOTest" />
+        <item itemvalue="JUnit.ActivityDAOTest" />
+
       </list>
     </recent_temporary>
   </component>
@@ -222,9 +276,11 @@
       <workItem from="1698836088617" duration="2506000" />
       <workItem from="1698916038223" duration="12293000" />
       <workItem from="1698931820913" duration="33866000" />
-      <workItem from="1699082042032" duration="82913000" />
-      <workItem from="1699303414018" duration="1576000" />
-      <workItem from="1699346680109" duration="13720000" />
+
+      <workItem from="1699082042032" duration="82552000" />
+      <workItem from="1699373787333" duration="4108000" />
+      <workItem from="1700243407368" duration="2094000" />
+      <workItem from="1702547066012" duration="15001000" />
     </task>
     <task id="LOCAL-00001" summary="v1.0">
       <option name="closed" value="true" />

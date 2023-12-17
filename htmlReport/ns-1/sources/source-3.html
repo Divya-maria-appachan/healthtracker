@@ -41,75 +41,43 @@ Current scope:     <a href="../../index.html">all classes</a>
   <td class="name">HealthTipController</td>
 <td class="coverageStat">
   <span class="percent">
-    20%
+    100%
   </span>
   <span class="absValue">
-    (1/5)
+    (5/5)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    5%
+    85%
   </span>
   <span class="absValue">
-    (1/20)
+    (17/20)
   </span>
 </td>
 </tr>
   <tr>
     <td class="name">HealthTipController$addTips$$inlined$jsonToObject$1</td>
-<td class="coverageStat">
-  <span class="percent">
-    0%
-  </span>
-  <span class="absValue">
-    (0/1)
-  </span>
-</td>
-<td class="coverageStat">
-  <span class="percent">
-    0%
-  </span>
-  <span class="absValue">
-    (0/1)
-  </span>
-</td>
   </tr>
   <tr>
     <td class="name">HealthTipController$updateTips$$inlined$jsonToObject$1</td>
-<td class="coverageStat">
-  <span class="percent">
-    0%
-  </span>
-  <span class="absValue">
-    (0/1)
-  </span>
-</td>
-<td class="coverageStat">
-  <span class="percent">
-    0%
-  </span>
-  <span class="absValue">
-    (0/1)
-  </span>
-</td>
   </tr>
 <tr>
   <td class="name"><strong>Total</strong></td>
 <td class="coverageStat">
   <span class="percent">
-    14.3%
+    100%
   </span>
   <span class="absValue">
-    (1/7)
+    (5/5)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    4.5%
+    85%
   </span>
   <span class="absValue">
-    (1/22)
+    (17/20)
   </span>
 </td>
 </tr>
@@ -131,39 +99,39 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;object HealthTipController {
 <b class="fc">&nbsp;    private val healthTipsDao = HealthTipDAO()</b>
 &nbsp;    fun addTips(ctx: Context) {
-<b class="nc">&nbsp;        var healthTip: HealthTip = jsonToObject(ctx.body())</b>
-<b class="nc">&nbsp;        val id = healthTipsDao.addHealthTip(healthTip)</b>
-<b class="nc">&nbsp;        if (id != null) {</b>
-<b class="nc">&nbsp;            ctx.json(healthTip)</b>
-<b class="nc">&nbsp;            ctx.status(201)</b>
+<b class="fc">&nbsp;        var healthTip: HealthTip = jsonToObject(ctx.body())</b>
+<b class="fc">&nbsp;        val id = healthTipsDao.addHealthTip(healthTip)</b>
+<b class="fc">&nbsp;        if (id != null) {</b>
+<b class="fc">&nbsp;            ctx.json(healthTip)</b>
+<b class="fc">&nbsp;            ctx.status(201)</b>
 &nbsp;        }
 &nbsp;    }
 &nbsp;
 &nbsp;    fun getTips(ctx: Context) {
-<b class="nc">&nbsp;        val healthTip = healthTipsDao.getRandom()</b>
-<b class="nc">&nbsp;        if (healthTip != null) {</b>
-<b class="nc">&nbsp;            ctx.json(healthTip)</b>
-<b class="nc">&nbsp;            ctx.status(200)</b>
+<b class="fc">&nbsp;        val healthTip = healthTipsDao.getRandom()</b>
+<b class="fc">&nbsp;        if (healthTip != null) {</b>
+<b class="fc">&nbsp;            ctx.json(healthTip)</b>
+<b class="fc">&nbsp;            ctx.status(200)</b>
 &nbsp;        } else {
 <b class="nc">&nbsp;            ctx.status(404)</b>
 &nbsp;        }
 &nbsp;    }
 &nbsp;
 &nbsp;    fun getAllTips(ctx: Context) {
-<b class="nc">&nbsp;        val healthTip = healthTipsDao.getAllTip()</b>
-<b class="nc">&nbsp;        if (healthTip.size != 0) {</b>
-<b class="nc">&nbsp;            ctx.status(200)</b>
+<b class="fc">&nbsp;        val healthTip = healthTipsDao.getAllTip()</b>
+<b class="fc">&nbsp;        if (healthTip.size != 0) {</b>
+<b class="fc">&nbsp;            ctx.status(200)</b>
 &nbsp;        } else {
 <b class="nc">&nbsp;            ctx.status(404)</b>
 &nbsp;        }
-<b class="nc">&nbsp;        ctx.json(healthTip)</b>
+<b class="fc">&nbsp;        ctx.json(healthTip)</b>
 &nbsp;    }
 &nbsp;    fun updateTips(ctx: Context){
-<b class="nc">&nbsp;        val tip : HealthTip = jsonToObject(ctx.body())</b>
-<b class="nc">&nbsp;        if ((healthTipsDao.updateTip(tip_id = ctx.pathParam(&quot;tip-id&quot;).toInt(), healthtip= tip)) != 0)</b>
+<b class="fc">&nbsp;        val tip : HealthTip = jsonToObject(ctx.body())</b>
+<b class="fc">&nbsp;        if ((healthTipsDao.updateTip(tip_id = ctx.pathParam(&quot;tip-id&quot;).toInt(), healthtip= tip)) != 0)</b>
 <b class="nc">&nbsp;            ctx.status(204)</b>
-<b class="nc">&nbsp;        else</b>
-<b class="nc">&nbsp;            ctx.status(404)</b>
+&nbsp;        else
+<b class="fc">&nbsp;            ctx.status(404)</b>
 &nbsp;    }
 &nbsp;
 &nbsp;
@@ -191,7 +159,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-11-05 09:36</div>
+    <div style="float:right;">generated on 2023-11-07 14:14</div>
 </div>
 </body>
 </html>
