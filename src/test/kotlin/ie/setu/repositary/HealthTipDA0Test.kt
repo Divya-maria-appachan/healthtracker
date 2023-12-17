@@ -100,7 +100,7 @@ class HealthTipDAOTest {
                 SchemaUtils.create(HealthTips)
 
                 // Act: Try to update a non-existing health tip
-                val newHealthTip = HealthTip(id = 2, tips = "New tip")
+                val newHealthTip = healthTip3
                 val updatedRows = healthTipDAO.updateTip(2, newHealthTip)
 
                 // Assert: The update should not affect any rows, and no rows should be updated
@@ -117,7 +117,7 @@ class HealthTipDAOTest {
                     SchemaUtils.create(HealthTips)
 
                     // Arrange: Create an initial health tip
-                    val initialHealthTip = HealthTip(id = 1, tips = "Initial tip")
+                    val initialHealthTip = healthTip1
                     healthTipDAO.addHealthTip(initialHealthTip)
 
                     // Act: Update the health tip
