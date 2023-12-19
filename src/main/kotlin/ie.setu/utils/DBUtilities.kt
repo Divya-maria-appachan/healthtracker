@@ -1,13 +1,7 @@
 package ie.setu.utils
 
-import ie.setu.domain.Activity
-import ie.setu.domain.Bmi
-import ie.setu.domain.HealthTip
-import ie.setu.domain.User
-import ie.setu.domain.db.Activities
-import ie.setu.domain.db.Bmies
-import ie.setu.domain.db.HealthTips
-import ie.setu.domain.db.Users
+import ie.setu.domain.*
+import ie.setu.domain.db.*
 import org.jetbrains.exposed.sql.ResultRow
 
 
@@ -35,6 +29,12 @@ fun mapToBmi(it: ResultRow) = Bmi(
 fun mapToHealthTip(it:ResultRow) = HealthTip(
     id = it[HealthTips.id],
     tips = it[HealthTips.tips]
+)
+fun mapToSleep(it: ResultRow) = Sleep(
+    id = it[userSleep.id],
+    duration = it[userSleep.duration],
+    date = it[userSleep.date],
+    userId = it[userSleep.userId]
 )
 
 
