@@ -1,9 +1,6 @@
 package ie.setu.config
 
-import ie.setu.controllers.ActivityController
-import ie.setu.controllers.BMIController
-import ie.setu.controllers.HealthTipController
-import ie.setu.controllers.UserController
+import ie.setu.controllers.*
 import ie.setu.utils.jsonObjectMapper
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.*
@@ -33,22 +30,28 @@ class JavalinConfig {
             path("/api/users") {
                 get(UserController::getAllUsers)
                 post(UserController::addUser)
-                path("{user-id}"){
+                path("{user-id}") {
                     get(UserController::getUserByUserId)
                     delete(UserController::deleteUser)
                     patch(UserController::updateUser)
-                    path("bmi"){
+                    path("bmi") {
                         get(BMIController::getBmiByUserId)
                         delete(BMIController::deleteBmiByUserId)
 
                     }
-                    path("activities"){
+                    path("activities") {
                         get(ActivityController::getActivitiesByUserId)
                         delete(ActivityController::deleteActivityByUserId)
                     }
+                    path("sleep") {
+                        post(SleepController::addSleep)
+                        get(SleepController::getSleepByUserId)
+                    }
                 }
-                path("/email/{email}"){
+
+                path("/email/{email}") {
                     get(UserController::getUserByEmail)
+
                 }
             }
             path("/api/activities") {
@@ -82,6 +85,10 @@ class JavalinConfig {
             path("/api/tips"){
                 get(HealthTipController::getAllTips)
 
+            }
+            path("/api/sleep/{id}") {
+                patch(SleepController::updateSleepById)
+                delete(SleepController::deleteSleepById)
             }
             // The @routeComponent that we added in layout.html earlier will be replaced
             // by the String inside the VueComponent. This means a call to / will load
