@@ -1,23 +1,14 @@
 package ie.setu.helpers
 
-import ie.setu.domain.Activity
-import ie.setu.domain.Bmi
-import ie.setu.domain.HealthTip
-import ie.setu.domain.User
-import ie.setu.domain.db.Activities
-import ie.setu.domain.db.Bmies
-import ie.setu.domain.db.HealthTips
-import ie.setu.domain.db.Users
-import ie.setu.domain.repository.ActivityDAO
-import ie.setu.domain.repository.BmiDAO
-import ie.setu.domain.repository.HealthTipDAO
-import ie.setu.domain.repository.UserDAO
+import ie.setu.domain.*
+import ie.setu.domain.db.*
+import ie.setu.domain.repository.*
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.joda.time.DateTime
 
 val nonExistingEmail = "112233445566778testUser@xxxxx.xx"
 val validName = "Test User 1"
-val validEmail = "testuser1@test.com"
+val validEmail = "testuserr1@test.com"
 val updatedName = "Updated Name"
 val updatedEmail = "Updated Email"
 val validId = 13
@@ -29,6 +20,8 @@ val updatedDescription = "Updated Description"
 val updatedDuration = 30.0
 val updatedCalories = 500
 val updatedStarted = DateTime.parse("2020-06-11T05:59:27.258Z")
+
+val updateddate = DateTime.parse("2020-06-11T05:59:27.258Z")
 
 
 
@@ -58,6 +51,11 @@ val bmies = arrayListOf<Bmi>(
     Bmi(id = 2, userId = 2,  weight = 59.0, height = 154.0, bmiCalculator = "24.87771968291449", timestamp=DateTime.now()),
     Bmi(id = 3, userId = 3,  weight = 58.0, height = 150.0, bmiCalculator = "25.77777777777778", timestamp=DateTime.now())
     )
+val sleep = arrayListOf<Sleep>(
+    Sleep(id = 1, duration = 30.0, date = DateTime.now(), userId = 1),
+    Sleep(id = 2, duration = 40.0, date = DateTime.now(), userId = 1),
+    Sleep(id = 3, duration = 50.0, date = DateTime.now(), userId = 3)
+)
 
 
 
@@ -93,4 +91,13 @@ fun populatebmisTable(): BmiDAO {
     bmiDAO .save(bmies[2])
     return bmiDAO
 }
+fun populateSleepTable(): SleepDAO {
+    SchemaUtils.create(userSleep)
+    val sleepDAO = SleepDAO()
+    sleepDAO.save(sleep.get(0))
+    sleepDAO.save(sleep.get(1))
+    sleepDAO.save(sleep.get(2))
+    return sleepDAO
+}
+
 

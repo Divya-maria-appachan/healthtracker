@@ -1,5 +1,6 @@
 package ie.setu.helpers
 
+import ie.setu.domain.db.userSleep.id
 import kong.unirest.HttpResponse
 import kong.unirest.JsonNode
 import kong.unirest.Unirest
@@ -109,6 +110,40 @@ object TestUtilities {
         return Unirest.patch("$origin/api/tip/$id")
             .body("{\"id\":\"$id\", \"tips\":\"$tips\"}")
             .asJson()
+    }
+    fun retrieveSleepByUserId(id: Int): HttpResponse<JsonNode> {
+        return Unirest.get(origin + "/api/users/${id}/sleep").asJson()
+    }
+
+
+    fun addSleep(duration: Double, date: DateTime, userId: Int): HttpResponse<JsonNode> {
+        return Unirest.post("$origin/api/users/${id}/sleep")
+            .body("""
+                {
+                  
+                   "duration":$duration,
+                   "date":"$date",
+                   "userId":$userId
+                }
+            """.trimIndent())
+            .asJson()
+    }
+
+
+    fun updateSleep(id: Int, duration: Double, date: DateTime, userId: Int): HttpResponse<JsonNode> {
+        return Unirest.patch("$origin/api/sleep/$id")
+            .body("""
+                {
+                   "id":$id,
+                   "duration":$duration,
+                   "date":"$date",
+                   "userId":$userId
+                }
+            """.trimIndent()).asJson()
+    }
+
+    fun deleteSleepBySleepId(id: Int): HttpResponse<String> {
+        return Unirest.delete("$origin/api/sleep/$id").asString()
     }
 
 }
