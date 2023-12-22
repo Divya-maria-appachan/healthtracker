@@ -3,9 +3,11 @@ package ie.setu.controllers
 import ie.setu.config.DbConfig
 import ie.setu.domain.Activity
 import ie.setu.domain.HealthTip
+import ie.setu.domain.Sleep
 import ie.setu.domain.User
 import ie.setu.helpers.*
 import ie.setu.helpers.TestUtilities.addActivity
+import ie.setu.helpers.TestUtilities.addSleep
 import ie.setu.helpers.TestUtilities.addTips
 import ie.setu.helpers.TestUtilities.addUser
 import ie.setu.helpers.TestUtilities.deleteActivitiesByUserId
@@ -17,6 +19,7 @@ import ie.setu.helpers.TestUtilities.retrieveAllActivities
 import ie.setu.helpers.TestUtilities.retrieveUserByEmail
 import ie.setu.helpers.TestUtilities.retrieveUserById
 import ie.setu.helpers.TestUtilities.updateActivity
+import ie.setu.helpers.TestUtilities.updateSleep
 import ie.setu.helpers.TestUtilities.updateTips
 import ie.setu.helpers.TestUtilities.updateUser
 import ie.setu.utils.jsonNodeToObject
@@ -480,8 +483,73 @@ class HealthTrackerControllerTest {
 
 
     }
+    @Nested
+    inner class Createsleep {
+
+        @Test
+        fun `add an activity when a user exists for it, returns a 201 response`() {
+
+            //Arrange - add a user and an associated activity that we plan to do a delete on
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+
+            val addSleepResponse = addSleep(
+                sleep.get(0).duration,sleep.get(0).date, addedUser.id
+            )
+            assertEquals(201, addSleepResponse.status)
+
+            //After - delete the user (Activity will cascade delete in the database)
+            deleteUser(addedUser.id)
+        }
+
+    }
+    @Nested
+    inner class UpdateSleep {
+
+        @Test
+        fun `updating an activity by activity id when it doesn't exist, returns a 404 response`() {
+            val userId = -1
+            val sleepID = -1
+
+            //Arrange - check there is no user for -1 id
+            assertEquals(404, retrieveUserById(userId).status)
+
+            //Act & Assert - attempt to update the details of an activity/user that doesn't exist
+            assertEquals(
+                404, updateSleep(
+                    sleepID,updatedDuration,
+                    updateddate, userId
+                ).status
+            )
+        }
+
+        @Test
+        fun `updating an activity by activity id when it exists, returns 204 response`() {
+
+            // Arrange - add a user and an associated activity that we plan to do an update on
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+            val addSleepResponse = addSleep(
+                sleep[0].duration, sleep[0].date, addedUser.id
+            )
+            assertEquals(201, addSleepResponse.status)
+            val addedSleep = jsonNodeToObject<Sleep>(addSleepResponse)
+
+            // Act & Assert - update the added activity and assert a 204 is returned
+            val updatedSleepResponse = updateSleep(
+                addedSleep.id, updatedDuration, updateddate, addedUser.id
+            )
+            assertEquals(204, updatedSleepResponse.status)
+
+
+            // After - delete the user
+            deleteUser(addedUser.id)
+        }
+
+    }
+
+
 
 }
+
 
 
 
