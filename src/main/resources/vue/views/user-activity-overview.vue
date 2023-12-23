@@ -83,8 +83,7 @@
                 <b-icon-trash-fill variant="secondary" class="mr-2"></b-icon-trash-fill>
               </button>
             </div>
-
-            <span>Covered {{activity.duration}} Hrs</span>
+            <span>Covered {{activity.duration}} ms</span>
             <span> {{activity.calories}} calories burned</span>
             <span> Started at {{activity.started}} </span>
 
@@ -99,7 +98,43 @@
 
 
 
+    <div class="card bg-light mb-3">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-6"> User Achievements </div>
+        </div>
+      </div>
 
+      <div class="card-body">
+        <div class="container-fluid py-2">
+          <div class="d-flex flex-row flex-nowrap">
+            <div v-for="achievement in achievements">
+              <div class="card card-body bg-secondary text-white" style="margin: 15px">
+                <h4 class="float-left"><b-icon-trophy class="mr-2"></b-icon-trophy>
+                  RANK {{achievement.rank}}
+                </h4>
+                Achieved on {{achievement.date.toString().slice(0,10)}} <br>
+                <span style="text-align:center">({{achievement.name}})</span>
+              </div>
+            </div>
+
+            <div v-for="rank in (4-achievements.length)">
+              <div class="card card-body bg-light" style="margin: 15px">
+                <h4 class="float-left"><b-icon-trophy class="mr-2"></b-icon-trophy>
+                  RANK {{achievements.length + rank}}
+                </h4>
+                <span class="float-left">Yet to be Achieved <b-icon-lock-fill class="mr-2"></b-icon-lock-fill></span>
+                <span style="text-align:center" v-if="achievements.length + rank === 1">(60 ms)</span>
+                <span style="text-align:center" v-if="achievements.length + rank === 2">(120 ms)</span>
+                <span style="text-align:center" v-if="achievements.length + rank === 3">(180 ms)</span>
+                <span style="text-align:center" v-if="achievements.length + rank === 4">(240 ms)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
 
 
@@ -111,6 +146,7 @@ app.component("user-activity-overview",{
   template: "#user-activity-overview",
   data: () => ({
     activities: [],
+    achievements: [],
     userId: null,
     hideForm :true,
     formData: []
@@ -120,7 +156,12 @@ app.component("user-activity-overview",{
     axios.get(`/api/users/${this.userId}/activities`)
         .then(res => this.activities = res.data)
         .catch(() => console.log("Error while fetching activities"));
-
+    axios.get(`/api/users/${this.userId}/achievements`)
+        .then(res => {
+              this.achievements = res.data
+            }
+        )
+        .catch(() => console.log("Error while fetching achievements"));
   },
   methods: {
     addActivity: function (){
@@ -130,6 +171,7 @@ app.component("user-activity-overview",{
           {
             description: this.formData.description,
             duration: this.formData.duration,
+
             calories: this.formData.calories,
             started: new Date().toISOString(),
             userId: userId

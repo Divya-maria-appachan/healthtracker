@@ -47,6 +47,10 @@ class JavalinConfig {
                         post(SleepController::addSleep)
                         get(SleepController::getSleepByUserId)
                     }
+                    path("achievements"){
+
+                        get(AchievementController::getAchievementsByUserId)
+                    }
                 }
 
                 path("/email/{email}") {
@@ -89,6 +93,9 @@ class JavalinConfig {
             path("/api/sleep/{id}") {
                 patch(SleepController::updateSleepById)
                 delete(SleepController::deleteSleepById)
+            }
+            path("/api/achievement/{id}") {
+                delete(AchievementController::deleteByAchievementId)
             }
             // The @routeComponent that we added in layout.html earlier will be replaced
             // by the String inside the VueComponent. This means a call to / will load
