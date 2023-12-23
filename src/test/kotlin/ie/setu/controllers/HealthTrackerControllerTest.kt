@@ -12,6 +12,7 @@ import ie.setu.helpers.TestUtilities.addTips
 import ie.setu.helpers.TestUtilities.addUser
 import ie.setu.helpers.TestUtilities.deleteActivitiesByUserId
 import ie.setu.helpers.TestUtilities.deleteActivityByActivityId
+import ie.setu.helpers.TestUtilities.deleteSleepBySleepId
 import ie.setu.helpers.TestUtilities.deleteUser
 import ie.setu.helpers.TestUtilities.retrieveActivitiesByUserId
 import ie.setu.helpers.TestUtilities.retrieveActivityByActivityId
@@ -214,7 +215,7 @@ class HealthTrackerControllerTest {
     }
 
     @Nested
-    inner class ReadActivities {
+    inner class ReadUActivities {
 
         @Test
         fun `get all activities from the database returns 200 or 404 response`() {
@@ -470,6 +471,7 @@ class HealthTrackerControllerTest {
 
         }
     }
+
     @Nested
     inner class UpdateTips {
 
@@ -483,17 +485,18 @@ class HealthTrackerControllerTest {
 
 
     }
+
     @Nested
     inner class Createsleep {
 
         @Test
-        fun `add an activity when a user exists for it, returns a 201 response`() {
+        fun `add an sleepHr when a user exists for it, returns a 201 response`() {
 
             //Arrange - add a user and an associated activity that we plan to do a delete on
             val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
 
             val addSleepResponse = addSleep(
-                sleep.get(0).duration,sleep.get(0).date, addedUser.id
+                sleep.get(0).duration, sleep.get(0).date, addedUser.id
             )
             assertEquals(201, addSleepResponse.status)
 
@@ -502,11 +505,12 @@ class HealthTrackerControllerTest {
         }
 
     }
+
     @Nested
     inner class UpdateSleep {
 
         @Test
-        fun `updating an activity by activity id when it doesn't exist, returns a 404 response`() {
+        fun `updating an sleepHr by sleep id when it doesn't exist, returns a 404 response`() {
             val userId = -1
             val sleepID = -1
 
@@ -516,14 +520,14 @@ class HealthTrackerControllerTest {
             //Act & Assert - attempt to update the details of an activity/user that doesn't exist
             assertEquals(
                 404, updateSleep(
-                    sleepID,updatedDuration,
+                    sleepID, updatedDuration,
                     updateddate, userId
                 ).status
             )
         }
 
         @Test
-        fun `updating an activity by activity id when it exists, returns 204 response`() {
+        fun `updating an sleepHr by sleep id when it exists, returns 204 response`() {
 
             // Arrange - add a user and an associated activity that we plan to do an update on
             val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
@@ -541,14 +545,97 @@ class HealthTrackerControllerTest {
 
 
             // After - delete the user
+            assertEquals(204, deleteUser(addedUser.id).status)
+        }
+
+    }
+    @Nested
+    inner class ReadUserSleep {
+        @Test
+        fun `get all sleep by user id when no sleepHr exist returns 404 response`() {
+            //Arrange - add a user
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+
+            //Assert and Act - retrieve the activities by user id
+           // val response = TestUtilities.retrieveSleepByUserId(addedUser.id)
+            //assertEquals(404, response.status)
+
+            //After - delete the added user and assert a 204 is returned
+            assertEquals(204, deleteUser(addedUser.id).status)
+        }
+
+
+        @Test
+        fun `get all sleepHr by user id when user and sleepHr exists returns 200 response`() {
+            //Arrange - add a user and 3 associated activities that we plan to retrieve
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+            val addSleepResponse = addSleep(
+                sleep[0].duration, sleep[0].date, addedUser.id
+            )
+            assertEquals(201, addSleepResponse.status)
+
+
+            //Assert and Act - retrieve the three added activities by user id
+            val response = TestUtilities.retrieveSleepByUserId(addedUser.id)
+            assertEquals(200, response.status)
+
+
+            //After - delete the added user and assert a 204 is returned (activities are cascade deleted)
+            assertEquals(204, deleteUser(addedUser.id).status)
+        }
+
+
+
+        @Test
+        fun `get all sleepHr by user id when no user exists returns 404 response`() {
+            //Arrange
+            val userId = -1
+
+            //Assert and Act - retrieve activities by user id
+            val response = TestUtilities.retrieveSleepByUserId(userId)
+            assertEquals(404, response.status)
+        }
+
+    }
+    @Nested
+    inner class DeleteUserSleep {
+
+        @Test
+        fun `deleting an activity by activity id when it doesn't exist, returns a 404 response`() {
+            //Act & Assert - attempt to delete a user that doesn't exist
+            assertEquals(404, deleteSleepBySleepId(-1).status)
+        }
+
+
+
+        @Test
+        fun `deleting an activity by id when it exists, returns a 204 response`() {
+
+            //Arrange - add a user and an associated activity that we plan to do a delete on
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+            val addSleepResponse = addSleep(
+                sleep[0].duration, sleep[0].date, addedUser.id
+            )
+            assertEquals(201, addSleepResponse.status)
+
+            //Act & Assert - delete the added activity and assert a 204 is returned
+            val addedSleep = jsonNodeToObject<Sleep>(addSleepResponse)
+            assertEquals(204, deleteSleepBySleepId(addedSleep.id).status)
+
+            //After - delete the user
             deleteUser(addedUser.id)
         }
+
 
     }
 
 
-
 }
+
+
+
+
+
 
 
 

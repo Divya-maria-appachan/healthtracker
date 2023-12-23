@@ -8,7 +8,7 @@ import org.joda.time.DateTime
 
 val nonExistingEmail = "112233445566778testUser@xxxxx.xx"
 val validName = "Test User 1"
-val validEmail = "testuserr1@test.com"
+val validEmail = "testuser1@test.com"
 val updatedName = "Updated Name"
 val updatedEmail = "Updated Email"
 val validId = 13
@@ -56,6 +56,11 @@ val sleep = arrayListOf<Sleep>(
     Sleep(id = 2, duration = 40.0, date = DateTime.now(), userId = 1),
     Sleep(id = 3, duration = 50.0, date = DateTime.now(), userId = 3)
 )
+val achievements = arrayListOf<Achievement>(
+    Achievement(id = 1, name = "First", rank = 4, date = DateTime.now(), userId = 1),
+    Achievement(id = 2, name = "Second", rank = 4, date = DateTime.now(), userId = 3),
+    Achievement(id = 3, name = "Third", rank = 4, date = DateTime.now(), userId = 2)
+)
 
 
 
@@ -98,6 +103,14 @@ fun populateSleepTable(): SleepDAO {
     sleepDAO.save(sleep.get(1))
     sleepDAO.save(sleep.get(2))
     return sleepDAO
+}
+fun populateAchievementTable(): AchievementDAO {
+    SchemaUtils.create(Achievements)
+    val achievementDAO = AchievementDAO()
+    achievementDAO.save(achievements.get(0))
+    achievementDAO.save(achievements.get(1))
+    achievementDAO.save(achievements.get(2))
+    return achievementDAO
 }
 
 

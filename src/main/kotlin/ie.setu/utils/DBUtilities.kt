@@ -36,6 +36,18 @@ fun mapToSleep(it: ResultRow) = Sleep(
     date = it[userSleep.date],
     userId = it[userSleep.userId]
 )
+fun mapToAchievement(it: ResultRow) = Achievement(
+    id = it[Achievements.id],
+    name = it[Achievements.name],
+    rank = it[Achievements.rank],
+    date = it[Achievements.date],
+    userId = it[Achievements.userId]
+)
+
+
+
+
+
 
 
 

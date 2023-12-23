@@ -112,7 +112,7 @@ object TestUtilities {
             .asJson()
     }
     fun retrieveSleepByUserId(id: Int): HttpResponse<JsonNode> {
-        return Unirest.get(origin + "/api/users/${id}/sleep").asJson()
+        return Unirest.get("$origin/api/users/${id}/sleep").asJson()
     }
 
 
