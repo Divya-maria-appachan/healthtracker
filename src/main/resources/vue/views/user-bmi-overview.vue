@@ -3,14 +3,8 @@
     <div>
       <h3>Bmi list </h3>
       <ul>
-        <li v-for="bmi in bmi">
-          ID: {{ bmi.id }}<br>
-          Weight: {{ bmi.weight }}<br>
-          Height: {{ bmi.height }}<br>
-          User ID: {{ bmi.userId }}<br>
-          BMI Calculator: {{ bmi.bmiCalculator }}<br>
-          Timestamp: {{ bmi.timestamp }}<br>
-        </li>
+
+
       </ul>
     </div>
   </app-layout>

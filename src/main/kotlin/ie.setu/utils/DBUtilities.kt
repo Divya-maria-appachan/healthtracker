@@ -1,6 +1,7 @@
 package ie.setu.utils
 
 import ie.setu.domain.*
+import ie.setu.domain.Target
 import ie.setu.domain.db.*
 import org.jetbrains.exposed.sql.ResultRow
 
@@ -42,6 +43,13 @@ fun mapToAchievement(it: ResultRow) = Achievement(
     rank = it[Achievements.rank],
     date = it[Achievements.date],
     userId = it[Achievements.userId]
+)
+fun mapToTarget(it: ResultRow) = Target(
+    id = it[Targets.id],
+    targetSleep = it[Targets.targetSleep],
+    targetBmi = it[Targets.targetBmi],
+    date = it[Targets.date],
+    userId = it[Targets.userId]
 )
 
 
