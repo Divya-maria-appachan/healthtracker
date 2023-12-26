@@ -4,15 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d9ce8a4-8a5f-498a-94a9-37768e2515b9" name="Changes" comment="Add Achievement feature and test case for user sleep">
+    <list default="true" id="6d9ce8a4-8a5f-498a-94a9-37768e2515b9" name="Changes" comment="Add test case for Tips">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/TargetController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/Target.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/db/Targets.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/TargetDAO.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vue/views/user-targets.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/config/JavalinConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/AchievementController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/AchievementController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/HealthTipController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/HealthTipController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/HealthTipDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/HealthTipDAO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/HealthTrackerControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/HealthTrackerControllerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/Bmi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/Bmi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/db/Bmies.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/db/Bmies.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/BmiDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/BmiDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/utils/DBUtilities.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/utils/DBUtilities.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/views/activity-overview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/views/activity-overview.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/views/user-activity-overview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/views/user-activity-overview.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/views/user-bmi-overview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/views/user-bmi-overview.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/views/user-profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/views/user-profile.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/Fixtures.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/Fixtures.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/testUtility.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/testUtility.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +41,8 @@
         <option value="Kotlin Data Class" />
         <option value="Kotlin Object" />
         <option value="Kotlin File" />
-        <option value="Vue Options API Component" />
         <option value="Kotlin Class" />
+        <option value="Vue Options API Component" />
       </list>
     </option>
   </component>
@@ -105,7 +114,7 @@
       <recent name="ie.setu.controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HealthTrackerControllerTest">
+  <component name="RunManager" selected="Kotlin.AppKt">
     <configuration name="AchievementDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthtrackerrest" />
       <extension name="coverage">
@@ -121,7 +130,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ActivityDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BmiDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthtrackerrest" />
       <extension name="coverage">
         <pattern>
@@ -130,7 +139,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ie.setu.repository" />
-      <option name="MAIN_CLASS_NAME" value="ie.setu.repository.ActivityDAOTest" />
+      <option name="MAIN_CLASS_NAME" value="ie.setu.repository.BmiDAOTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -175,11 +184,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HealthTrackerControllerTest" />
         <item itemvalue="Kotlin.AppKt" />
+        <item itemvalue="JUnit.BmiDAOTest" />
+        <item itemvalue="JUnit.HealthTrackerControllerTest" />
         <item itemvalue="JUnit.HealthTrackerControllerTest$DeleteTips" />
         <item itemvalue="JUnit.AchievementDAOTest" />
-        <item itemvalue="JUnit.ActivityDAOTest" />
       </list>
     </recent_temporary>
   </component>
@@ -209,7 +218,8 @@
       <workItem from="1699373787333" duration="4108000" />
       <workItem from="1700243407368" duration="2094000" />
       <workItem from="1702547066012" duration="15001000" />
-      <workItem from="1703280046004" duration="16958000" />
+      <workItem from="1703280046004" duration="30398000" />
+      <workItem from="1703607796311" duration="14722000" />
     </task>
     <task id="LOCAL-00001" summary="v1.0">
       <option name="closed" value="true" />
@@ -339,7 +349,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703325283220</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Add test case for Tips">
+      <option name="closed" value="true" />
+      <created>1703581386624</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1703581386624</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +401,8 @@
     <MESSAGE value="Add Sleep CRUD operation" />
     <MESSAGE value="Add Sleep Tracker front-end" />
     <MESSAGE value="Add Achievement feature and test case for user sleep" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Achievement feature and test case for user sleep" />
+    <MESSAGE value="Add test case for Tips" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add test case for Tips" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/healthtrackerrest$ActivityDAOTest.ic" NAME="ActivityDAOTest Coverage Results" MODIFIED="1699178895524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

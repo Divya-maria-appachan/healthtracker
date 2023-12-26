@@ -7,7 +7,7 @@ data class Bmi(
     var weight: Double,
     var height: Double,
     var userId: Int,
-    val bmiCalculator: String,
+    val bmiCalculator: Double,
     var timestamp: DateTime
 )
 

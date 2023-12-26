@@ -51,6 +51,12 @@ class JavalinConfig {
 
                         get(AchievementController::getAchievementsByUserId)
                     }
+                    path("targets"){
+                        post(TargetController::addTarget)
+                        get(TargetController::getTargetsByUserId)
+                        delete(TargetController::deleteTargetsByUserId)
+                        patch(TargetController::updateTargetsByUserId)
+                    }
                 }
 
                 path("/email/{email}") {
@@ -111,6 +117,7 @@ class JavalinConfig {
             get("/users/{user-id}/bmi", VueComponent("<user-bmi-overview></user-bmi-overview>"))
             get("/users/{user-id}/sleep", VueComponent("<user-sleep></user-sleep>"))
             get("/tip", VueComponent("<tips-overview></tips-overview>"))
+            get("/users/{user-id}/targets", VueComponent("<user-targets></user-targets>"))
             get("/activities", VueComponent("<activity-overview></activity-overview>"))
         }
     }

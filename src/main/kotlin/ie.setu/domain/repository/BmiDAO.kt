@@ -77,13 +77,13 @@ class BmiDAO {
         }
     }
 
-    private fun calculateBmi(weight: Double, height: Double): String {
+    private fun calculateBmi(weight: Double, height: Double): Double {
         if (weight <= 0 || height <= 0) {
             throw IllegalArgumentException("Weight and height must be greater than zero")
         }
 
         val heightInMeters = height / 100.0
-        return ( weight / (heightInMeters * heightInMeters)).toString()// Calculate BMI using the formula: weight (kg) / (height (m) * height (m))
+        return ( weight / (heightInMeters * heightInMeters))// Calculate BMI using the formula: weight (kg) / (height (m) * height (m))
     }
 
 

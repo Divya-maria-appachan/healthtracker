@@ -153,6 +153,7 @@ app.component("user-activity-overview",{
   }),
   created() {
     this.userId = this.$javalin.pathParams["user-id"];
+    console.log(this.userId)
     axios.get(`/api/users/${this.userId}/activities`)
         .then(res => this.activities = res.data)
         .catch(() => console.log("Error while fetching activities"));
