@@ -28,7 +28,7 @@ object AchievementController {
     }
 
     fun deleteByAchievementId(ctx: Context){
-        if (achievementDao.deleteByAchievementId(ctx.pathParam("achievement-id").toInt()) != 0)
+        if (achievementDao.deleteByAchievementId(ctx.pathParam("id").toInt()) != 0)
             ctx.status(204)
         else
             ctx.status(404)

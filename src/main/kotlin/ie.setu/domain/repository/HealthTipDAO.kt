@@ -4,13 +4,9 @@ package ie.setu.domain.repository
 import ie.setu.domain.HealthTip
 import ie.setu.domain.db.HealthTips
 import ie.setu.utils.mapToHealthTip
-import org.jetbrains.exposed.sql.insert
-import org.jetbrains.exposed.sql.select
-import org.jetbrains.exposed.sql.selectAll
+import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
-import org.jetbrains.exposed.sql.update
 import kotlin.random.Random
-
 
 
 class HealthTipDAO {
@@ -61,6 +57,13 @@ class HealthTipDAO {
                 }
             }
         }
+    fun delete(id: Int):Int{
+        return transaction{
+            HealthTips.deleteWhere{
+                HealthTips.id eq id
+            }
+        }
+    }
 
 
     }

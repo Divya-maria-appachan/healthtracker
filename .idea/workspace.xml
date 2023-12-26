@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d9ce8a4-8a5f-498a-94a9-37768e2515b9" name="Changes" comment="Add Sleep Tracker front-end">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/AchievementController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/Achievement.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/db/Achievements.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/AchievementDAO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/vue/views/bmi-overview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/repositary/AchievementDAOTest.kt" afterDir="false" />
+    <list default="true" id="6d9ce8a4-8a5f-498a-94a9-37768e2515b9" name="Changes" comment="Add Achievement feature and test case for user sleep">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/config/JavalinConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/config/JavalinConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/ActivityController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/ActivityController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/utils/DBUtilities.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/utils/DBUtilities.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/views/user-activity-overview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/views/user-activity-overview.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/AchievementController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/AchievementController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/HealthTipController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/HealthTipController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/HealthTipDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/domain/repository/HealthTipDAO.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/HealthTrackerControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/HealthTrackerControllerTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/Fixtures.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/Fixtures.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/testUtility.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/testUtility.kt" afterDir="false" />
@@ -111,7 +105,7 @@
       <recent name="ie.setu.controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.AppKt">
+  <component name="RunManager" selected="JUnit.HealthTrackerControllerTest">
     <configuration name="AchievementDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthtrackerrest" />
       <extension name="coverage">
@@ -142,6 +136,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HealthTrackerControllerTest$DeleteTips" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthtrackerrest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ie.setu.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ie.setu.controllers.HealthTrackerControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="ie.setu.controllers.HealthTrackerControllerTest$DeleteTips" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HealthTrackerControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthtrackerrest" />
       <extension name="coverage">
@@ -157,21 +166,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SleepDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="healthtrackerrest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ie.setu.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ie.setu.repository" />
-      <option name="MAIN_CLASS_NAME" value="ie.setu.repository.SleepDAOTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AppKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ie.setu.AppKt" />
       <module name="healthtrackerrest" />
@@ -181,11 +175,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HealthTrackerControllerTest" />
         <item itemvalue="Kotlin.AppKt" />
+        <item itemvalue="JUnit.HealthTrackerControllerTest$DeleteTips" />
         <item itemvalue="JUnit.AchievementDAOTest" />
         <item itemvalue="JUnit.ActivityDAOTest" />
-        <item itemvalue="JUnit.SleepDAOTest" />
-        <item itemvalue="JUnit.HealthTrackerControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +209,7 @@
       <workItem from="1699373787333" duration="4108000" />
       <workItem from="1700243407368" duration="2094000" />
       <workItem from="1702547066012" duration="15001000" />
-      <workItem from="1703280046004" duration="6644000" />
+      <workItem from="1703280046004" duration="16958000" />
     </task>
     <task id="LOCAL-00001" summary="v1.0">
       <option name="closed" value="true" />
@@ -337,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703236990353</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add Achievement feature and test case for user sleep">
+      <option name="closed" value="true" />
+      <created>1703325283219</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1703325283220</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,7 +382,8 @@
     <MESSAGE value="Add test coverage and test" />
     <MESSAGE value="Add Sleep CRUD operation" />
     <MESSAGE value="Add Sleep Tracker front-end" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Sleep Tracker front-end" />
+    <MESSAGE value="Add Achievement feature and test case for user sleep" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Achievement feature and test case for user sleep" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/healthtrackerrest$ActivityDAOTest.ic" NAME="ActivityDAOTest Coverage Results" MODIFIED="1699178895524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

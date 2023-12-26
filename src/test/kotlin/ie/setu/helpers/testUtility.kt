@@ -111,6 +111,9 @@ object TestUtilities {
             .body("{\"id\":\"$id\", \"tips\":\"$tips\"}")
             .asJson()
     }
+    fun deleteTip(id: Int): HttpResponse<JsonNode> {
+        return Unirest.delete("$origin/api/tip/$id").asJson()
+    }
     fun retrieveSleepByUserId(id: Int): HttpResponse<JsonNode> {
         return Unirest.get("$origin/api/users/${id}/sleep").asJson()
     }
@@ -144,6 +147,13 @@ object TestUtilities {
 
     fun deleteSleepBySleepId(id: Int): HttpResponse<String> {
         return Unirest.delete("$origin/api/sleep/$id").asString()
+    }
+
+    fun deleteAchievementByAchievementId(id: Int): HttpResponse<String> {
+        return Unirest.delete("$origin/api/achievement/$id").asString()
+    }
+    fun retrieveachievementByUserId(id: Int): HttpResponse<JsonNode> {
+        return Unirest.get("$origin/api/users/${id}/achievement").asJson()
     }
 
 }

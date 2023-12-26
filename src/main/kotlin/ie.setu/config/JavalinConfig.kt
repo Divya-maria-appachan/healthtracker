@@ -61,6 +61,7 @@ class JavalinConfig {
             path("/api/activities") {
                 get(ActivityController::getAllActivities)
                 post(ActivityController::addActivity)
+
                 path("{activity-id}") {
                     get(ActivityController::getActivityById)
                     delete(ActivityController::deleteActivityByActivityId)
@@ -84,6 +85,7 @@ class JavalinConfig {
                 get(HealthTipController::getTips)
                 path("{tip-id}"){
                     patch(HealthTipController::updateTips)
+                    delete(HealthTipController::deleteTip)
                 }
             }
             path("/api/tips"){
@@ -96,7 +98,9 @@ class JavalinConfig {
             }
             path("/api/achievement/{id}") {
                 delete(AchievementController::deleteByAchievementId)
+
             }
+
             // The @routeComponent that we added in layout.html earlier will be replaced
             // by the String inside the VueComponent. This means a call to / will load
             // the layout and display our <home-page> component.
