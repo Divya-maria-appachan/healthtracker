@@ -43,6 +43,12 @@ object HealthTipController {
         else
             ctx.status(404)
     }
+    fun deleteTip(ctx: Context){
+        if (healthTipsDao.delete(ctx.pathParam("tip-id").toInt()) != 0)
+            ctx.status(204)
+        else
+            ctx.status(404)
+    }
 
 
 }
