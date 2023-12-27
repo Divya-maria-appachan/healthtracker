@@ -115,6 +115,109 @@ paths:
                 $ref: '#/components/schemas/User'
         404:
           description: User not found
+  /api/users/{user-id}/targets/{target-id}:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/targetIdParam'
+      responses:
+        200:
+          description: Get a specific target by ID for a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Target'
+        404:
+          description: Target not found
+    delete:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/targetIdParam'
+      description: Delete a specific target by ID for a user
+      responses:
+        204:
+          description: Target deleted successfully
+        404:
+          description: Target not found
+  /api/users/{user-id}/sleep:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+      responses:
+        200:
+          description: Get sleep records for a specific user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SleepList'
+        404:
+          description: User not found
+    post:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sleep'
+      responses:
+        201:
+          description: Sleep record created successfully
+        404:
+          description: User not found
+
+  /api/sleep/{id}:
+    patch:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/sleepIdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sleep'
+      responses:
+        204:
+          description: Sleep record updated successfully
+        404:
+          description: Sleep record not found
+    delete:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/sleepIdParam'
+      responses:
+        204:
+          description: Sleep record deleted successfully
+        404:
+          description: Sleep record not found
+  /api/users/{user-id}/achievements:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+      responses:
+        200:
+          description: Get achievements for a specific user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AchievementList'
+        404:
+          description: User not found
+
+  /api/achievements/{achievement-id}:
+    delete:
+      parameters:
+        - $ref: '#/components/parameters/achievementIdParam'
+      description: Delete a specific achievement for a user
+      responses:
+        204:
+          description: Achievement deleted successfully
+        404:
+          description: Achievement not found
+
+
   /api/activities:
     get:
       responses:
@@ -210,6 +313,14 @@ paths:
       responses:
         204:
           description: Health tip updated successfully
+        404:
+          description: Health tip not found
+    delete:
+      parameters:
+        - $ref: '#/components/parameters/tipIdParam'
+      responses:
+        204:
+          description: Health tip deleted successfully
         404:
           description: Health tip not found
   /api/tips:
@@ -308,7 +419,27 @@ components:
       schema:
         type: integer
         example: 12345
-
+    targetIdParam:
+      in: path
+      name: target-id
+      required: true
+      schema:
+        type: integer
+        example: 12345
+    sleepIdParam:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        example: 12345
+    achievementIdParam:
+      in: path
+      name: achievement-id
+      required: true
+      schema:
+        type: integer
+        example: 12345
 
 
   schemas:
@@ -399,6 +530,85 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/BMI'
+    Target:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 12345
+        targetSleep:
+          type: number
+          format: double
+          example: 7.0
+        targetBmi:
+          type: number
+          format: double
+          example: 20.0
+        date:
+          type: string
+          format: date-time
+          example: "2023-12-27T13:26:50.040Z"
+        userId:
+          type: integer
+          example: 1826
+
+    TargetList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Target'
+
+
+
+
+    Sleep:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 12345
+        duration:
+          type: number
+          format: double
+          example: 8.0
+        date:
+          type: string
+          format: date-time
+          example: "2023-12-27T13:26:50.040Z"
+        userId:
+          type: integer
+          example: 1826
+
+    SleepList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Sleep'
+
+
+    Achievement:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 12345
+        name:
+          type: string
+          example: Achievement Name
+        rank:
+          type: integer
+          example: 1
+        date:
+          type: string
+          format: date-time
+          example: "2023-12-31T23:59:59Z"
+        userId:
+          type: integer
+          example: 3232
+
+    AchievementList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Achievement'
+
 
 
 
