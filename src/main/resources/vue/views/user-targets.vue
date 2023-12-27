@@ -138,8 +138,8 @@ app.component("user-targets", {
       const url = `/api/users/${userId}/targets`;
       axios.post(url,
           {
-            targetSleep: this.formData.targetSleep,
-            targetBmi: this.formData.targetBmi,
+            targetSleep: parseFloat(this.formData.targetSleep),
+            targetBmi: parseFloat(this.formData.targetBmi),
 
             date: new Date().toISOString(),
             userId: userId
@@ -158,8 +158,8 @@ app.component("user-targets", {
       const url = `/api/users/${userId}/targets`
 
       axios.patch(url,
-          {targetSleep: parseInt(document.getElementById("targetSleep").value),
-            targetBmi: parseInt(document.getElementById("targetBmi").value),
+          {targetSleep: parseFloat(document.getElementById("targetSleep").value),
+            targetBmi: parseFloat(document.getElementById("targetBmi").value),
             date: new Date().toISOString(),
             userId: userId
           })

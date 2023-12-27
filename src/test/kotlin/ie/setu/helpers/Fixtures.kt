@@ -1,6 +1,7 @@
 package ie.setu.helpers
 
 import ie.setu.domain.*
+import ie.setu.domain.Target
 import ie.setu.domain.db.*
 import ie.setu.domain.repository.*
 import org.jetbrains.exposed.sql.SchemaUtils
@@ -11,8 +12,9 @@ val validName = "Test User 1"
 val validEmail = "testuser1@test.com"
 val updatedName = "Updated Name"
 val updatedEmail = "Updated Email"
-val validId = 15
+val validId = 17
 val validTip = "Cut down on saturated fat and sugar."
+val updatedTip ="Avoid ultra-processed foods"
 
 
 
@@ -22,6 +24,9 @@ val updatedCalories = 500
 val updatedStarted = DateTime.parse("2020-06-11T05:59:27.258Z")
 
 val updateddate = DateTime.parse("2020-06-11T05:59:27.258Z")
+val updatedtargetSleep =8.00
+val updatedtargetBmi =15.00
+
 
 
 
@@ -60,6 +65,11 @@ val achievements = arrayListOf<Achievement>(
     Achievement(id = 1, name = "First", rank = 4, date = DateTime.now(), userId = 1),
     Achievement(id = 2, name = "Second", rank = 4, date = DateTime.now(), userId = 3),
     Achievement(id = 3, name = "Third", rank = 4, date = DateTime.now(), userId = 2)
+)
+val targets = arrayListOf<Target>(
+    Target(id = 1, targetSleep = 7.00, targetBmi = 20.00, date = DateTime.now(), userId = 1),
+    Target(id = 2, targetSleep = 7.00, targetBmi = 21.00, date = DateTime.now(), userId = 2),
+    Target(id = 3, targetSleep = 4.50, targetBmi = 12.00,  date = DateTime.now(), userId = 3)
 )
 
 
@@ -111,6 +121,14 @@ fun populateAchievementTable(): AchievementDAO {
     achievementDAO.save(achievements.get(1))
     achievementDAO.save(achievements.get(2))
     return achievementDAO
+}
+fun populateTargetTable(): TargetDAO {
+    SchemaUtils.create(Targets)
+    val targetDAO = TargetDAO()
+    targetDAO.save(targets.get(0))
+    targetDAO.save(targets.get(1))
+    targetDAO.save(targets.get(2))
+    return targetDAO
 }
 
 

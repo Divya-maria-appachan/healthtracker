@@ -1,27 +1,34 @@
 package ie.setu.controllers
 
 import ie.setu.config.DbConfig
-import ie.setu.domain.Activity
-import ie.setu.domain.HealthTip
-import ie.setu.domain.Sleep
-import ie.setu.domain.User
+import ie.setu.domain.*
 import ie.setu.helpers.*
 import ie.setu.helpers.TestUtilities.addActivity
+import ie.setu.helpers.TestUtilities.addBmi
 import ie.setu.helpers.TestUtilities.addSleep
+import ie.setu.helpers.TestUtilities.addTarget
 import ie.setu.helpers.TestUtilities.addTips
 import ie.setu.helpers.TestUtilities.addUser
 import ie.setu.helpers.TestUtilities.deleteAchievementByAchievementId
 import ie.setu.helpers.TestUtilities.deleteActivitiesByUserId
 import ie.setu.helpers.TestUtilities.deleteActivityByActivityId
 import ie.setu.helpers.TestUtilities.deleteSleepBySleepId
+import ie.setu.helpers.TestUtilities.deleteTargetsByUserId
+import ie.setu.helpers.TestUtilities.deleteTip
 import ie.setu.helpers.TestUtilities.deleteUser
 import ie.setu.helpers.TestUtilities.retrieveActivitiesByUserId
 import ie.setu.helpers.TestUtilities.retrieveActivityByActivityId
 import ie.setu.helpers.TestUtilities.retrieveAllActivities
+import ie.setu.helpers.TestUtilities.retrieveBmiByBmiId
+import ie.setu.helpers.TestUtilities.retrieveBmiByUserId
+import ie.setu.helpers.TestUtilities.retrieveTargetsByUserId
 import ie.setu.helpers.TestUtilities.retrieveUserByEmail
 import ie.setu.helpers.TestUtilities.retrieveUserById
+import ie.setu.helpers.TestUtilities.deleteBmiByUserId
+import ie.setu.helpers.TestUtilities.deleteBmiByBmiId
 import ie.setu.helpers.TestUtilities.updateActivity
 import ie.setu.helpers.TestUtilities.updateSleep
+import ie.setu.helpers.TestUtilities.updateTarget
 import ie.setu.helpers.TestUtilities.updateTips
 import ie.setu.helpers.TestUtilities.updateUser
 import ie.setu.utils.jsonNodeToObject
@@ -469,6 +476,7 @@ class HealthTrackerControllerTest {
             val addResponse = addTips(validId, validTip)
             val addedTip: HealthTip = jsonToObject(addResponse.body.toString())
             assertEquals(201, addResponse.status)
+            deleteTip(addedTip.id)
 
 
         }
@@ -477,6 +485,20 @@ class HealthTrackerControllerTest {
 
     @Nested
     inner class UpdateTips {
+        @Test
+        fun `updating a tips when it exists, returns a 204 response`() {
+
+            val addResponse = addTips(validId, validTip)
+            val addedTip: HealthTip = jsonToObject(addResponse.body.toString())
+            assertEquals(201, addResponse.status)
+
+            //Act & Assert - update the email and name of the retrieved user and assert 204 is returned
+            assertEquals(204, updateTips(addedTip.id, updatedTip).status)
+
+
+            //After - restore the db to previous state by deleting the added user
+            deleteTip(addedTip.id)
+        }
 
 
         @Test
@@ -686,6 +708,287 @@ class HealthTrackerControllerTest {
         }
 
 
+    }
+
+    @Nested
+    inner class CreateTargets {
+
+        @Test
+        fun `add an target when a user exists for it, returns a 201 response`() {
+
+            //Arrange - add a user and an associated activity that we plan to do a delete on
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+
+            val addTargetResponse = addTarget(
+                targets[0].targetSleep, targets[0].targetBmi,
+                targets[0].date, addedUser.id
+            )
+            assertEquals(201, addTargetResponse.status)
+
+            //After - delete the user (Activity will cascade delete in the database)
+            deleteUser(addedUser.id)
+        }
+
+
+    }
+
+    @Nested
+    inner class ReadUTargets {
+
+
+        @Test
+        fun `get all activities by user id when user and activities exists returns 200 response`() {
+            //Arrange - add a user and 3 associated activities that we plan to retrieve
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+            addTarget(
+                targets[0].targetSleep, targets[0].targetBmi,
+                targets[0].date, addedUser.id
+            )
+
+
+            //Assert and Act - retrieve the three added activities by user id
+            val response = retrieveTargetsByUserId(addedUser.id)
+            assertEquals(200, response.status)
+
+
+            //After - delete the added user and assert a 204 is returned (activities are cascade deleted)
+            assertEquals(204, deleteUser(addedUser.id).status)
+        }
+
+        @Test
+        fun `get all activities by user id when no activities exist returns 404 response`() {
+            //Arrange - add a user
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+
+            //Assert and Act - retrieve the activities by user id
+            val response = retrieveTargetsByUserId(addedUser.id)
+            assertEquals(404, response.status)
+
+            //After - delete the added user and assert a 204 is returned
+            assertEquals(204, deleteUser(addedUser.id).status)
+        }
+
+        @Test
+        fun `get all activities by user id when no user exists returns 404 response`() {
+            //Arrange
+            val userId = -1
+
+            //Assert and Act - retrieve activities by user id
+            val response = retrieveTargetsByUserId(-1)
+            assertEquals(404, response.status)
+        }
+
+
+    }
+
+    @Nested
+    inner class DeleteUTargets {
+
+
+        @Test
+        fun `get all activities by user id when user and activities exists returns 200 response`() {
+            //Arrange - add a user and 3 associated activities that we plan to retrieve
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+            addTarget(
+                targets[0].targetSleep, targets[0].targetBmi,
+                targets[0].date, addedUser.id
+            )
+
+
+            //Assert and Act - retrieve the three added activities by user id
+            val response = deleteTargetsByUserId(addedUser.id)
+            assertEquals(204, response.status)
+
+
+            //After - delete the added user and assert a 204 is returned (activities are cascade deleted)
+            assertEquals(204, deleteUser(addedUser.id).status)
+        }
+
+
+        @Test
+        fun `get all activities by user id when no user exists returns 404 response`() {
+            //Arrange
+            val userId = -1
+
+            //Assert and Act - retrieve activities by user id
+            val response = deleteTargetsByUserId(-1)
+            assertEquals(404, response.status)
+        }
+
+
+    }
+
+    @Nested
+    inner class UpdateTargets {
+
+        @Test
+        fun `updating an activity by activity id when it doesn't exist, returns a 404 response`() {
+            val userId = -1
+            val activityID = -1
+
+            //Arrange - check there is no user for -1 id
+            assertEquals(404, retrieveUserById(userId).status)
+
+            //Act & Assert - attempt to update the details of an activity/user that doesn't exist
+            assertEquals(
+                404, updateTarget(
+                    activityID, updatedtargetSleep, updatedtargetBmi,
+                    updateddate, userId
+                ).status
+            )
+        }
+
+
+    }
+
+    @Nested
+    inner class ReadBmi {
+
+
+        @Test
+        fun `get all bmi by user id when user and activities exists returns 200 response`() {
+            //Arrange - add a user and 3 associated activities that we plan to retrieve
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+            addBmi(
+                bmies[0].weight, bmies[0].height,
+                bmies[0].bmiCalculator, bmies[0].timestamp, addedUser.id
+            )
+
+
+            //Assert and Act - retrieve the three added activities by user id
+            val response = retrieveBmiByUserId(addedUser.id)
+            assertEquals(200, response.status)
+
+
+
+            assertEquals(204, deleteUser(addedUser.id).status)
+        }
+
+        @Test
+        fun `get all bmi by user id when no activities exist returns 404 response`() {
+            //Arrange - add a user
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+
+            //Assert and Act - retrieve the activities by user id
+            val response = retrieveBmiByUserId(addedUser.id)
+            assertEquals(404, response.status)
+
+            //After - delete the added user and assert a 204 is returned
+            assertEquals(204, deleteUser(addedUser.id).status)
+        }
+
+        @Test
+        fun `get all bmi by user id when no user exists returns 404 response`() {
+            //Arrange
+            val userId = -1
+
+            //Assert and Act - retrieve activities by user id
+            val response = retrieveBmiByUserId(userId)
+            assertEquals(404, response.status)
+        }
+
+        @Test
+        fun `get bmi by bmi id when no activity exists returns 404 response`() {
+            //Arrange
+            val BmiId = -1
+            //Assert and Act - attempt to retrieve the activity by activity id
+            val response = retrieveBmiByBmiId(BmiId)
+            assertEquals(404, response.status)
+        }
+
+
+        @Test
+        fun `get bmi by bmi id when activity exists returns 200 response`() {
+            //Arrange - add a user and associated activity
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+            val addBmiResponse = addBmi(
+                bmies[0].weight, bmies[0].height,
+                bmies[0].bmiCalculator, bmies[0].timestamp, addedUser.id
+            )
+
+            assertEquals(201, addBmiResponse.status)
+            val addedBmi = jsonNodeToObject<Bmi>(addBmiResponse)
+
+            //Act & Assert - retrieve the activity by activity id
+            val response = addedBmi.id?.let { retrieveBmiByBmiId(it) }
+            if (response != null) {
+                assertEquals(200, response.status)
+            }
+
+            //After - delete the added user and assert a 204 is returned
+            assertEquals(204, deleteUser(addedUser.id).status)
+        }
+
+
+    }
+
+    @Nested
+    inner class CreateBmi {
+
+        @Test
+        fun `add an activity when a user exists for it, returns a 201 response`() {
+
+            //Arrange - add a user and an associated activity that we plan to do a delete on
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+
+            val addBmiResponse = addBmi(
+                bmies[0].weight, bmies[0].height,
+                bmies[0].bmiCalculator, bmies[0].timestamp, addedUser.id
+            )
+            assertEquals(201, addBmiResponse.status)
+
+            //After - delete the user (Activity will cascade delete in the database)
+            deleteUser(addedUser.id)
+        }
+
+        @Test
+        fun `add an activity when no user exists for it, returns a 404 response`() {
+
+            //Arrange - check there is no user for -1 id
+            val userId = -1
+            assertEquals(404, retrieveUserById(userId).status)
+
+            val addBmiResponse = addBmi(
+                bmies[0].weight, bmies[0].height,
+                bmies[0].bmiCalculator, bmies[0].timestamp, userId
+            )
+            assertEquals(404, addBmiResponse.status)
+        }
+    }
+
+    @Nested
+    inner class DeleteBmi {
+
+        @Test
+        fun `deleting an activity by activity id when it doesn't exist, returns a 404 response`() {
+            //Act & Assert - attempt to delete a user that doesn't exist
+            assertEquals(404, deleteBmiByBmiId(-1).status)
+        }
+
+        @Test
+        fun `deleting activities by user id when it doesn't exist, returns a 404 response`() {
+            //Act & Assert - attempt to delete a user that doesn't exist
+            assertEquals(404, deleteBmiByUserId(-1).status)
+        }
+
+        @Test
+        fun `deleting an activity by id when it exists, returns a 204 response`() {
+
+            //Arrange - add a user and an associated activity that we plan to do a delete on
+            val addedUser: User = jsonToObject(addUser(validName, validEmail).body.toString())
+            val addBmiResponse = addBmi(
+                bmies[0].weight, bmies[0].height,
+                bmies[0].bmiCalculator, bmies[0].timestamp, addedUser.id
+            )
+            assertEquals(201, addBmiResponse.status)
+
+            //Act & Assert - delete the added activity and assert a 204 is returned
+            val addedBmi = jsonNodeToObject<Bmi>(addBmiResponse)
+            assertEquals(204, addedBmi.id?.let { deleteBmiByBmiId(it).status })
+
+            //After - delete the user
+            deleteUser(addedUser.id)
+        }
     }
 }
 

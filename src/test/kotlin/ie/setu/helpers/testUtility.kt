@@ -155,5 +155,67 @@ object TestUtilities {
     fun retrieveachievementByUserId(id: Int): HttpResponse<JsonNode> {
         return Unirest.get("$origin/api/users/${id}/achievement").asJson()
     }
+    fun addTarget( targetSleep: Double, targetBmi: Double,
+                    date: DateTime, userId: Int): HttpResponse<JsonNode> {
+        return Unirest.post("$origin/api/users/${id}/targets")
+            .body("""
+                {
+                   
+                   "targetSleep":$targetSleep,
+                   "targetBmi":$targetBmi,
+                   "date":"$date",
+                   "userId":$userId
+                }
+            """.trimIndent())
+            .asJson()
+    }
+    fun retrieveTargetsByUserId(id: Int): HttpResponse<JsonNode> {
+        return Unirest.get("$origin/api/users/${id}/targets").asJson()
+    }
+    fun deleteTargetsByUserId(id: Int): HttpResponse<JsonNode> {
+        return Unirest.delete("$origin/api/users/${id}/targets").asJson()
+    }
+    fun updateTarget(id: Int, targetSleep: Double, targetBmi: Double,
+                   date: DateTime, userId: Int): HttpResponse<JsonNode> {
+        return Unirest.post("$origin/api/users/${userId}/targets/$id")
+            .body("""
+                {
+                   "id":$id
+                   "targetSleep":$targetSleep,
+                   "targetBmi":$targetBmi,
+                   "date":"$date",
+                   "userId":$userId
+                }
+            """.trimIndent())
+            .asJson()
+    }
+    fun retrieveBmiByUserId(id: Int): HttpResponse<JsonNode> {
+        return Unirest.get(origin + "/api/users/${id}/bmi").asJson()
+    }
+    fun addBmi( weight: Double, height: Double,bmiCalculator: Double,
+                timestamp: DateTime, userId: Int): HttpResponse<JsonNode> {
+        return Unirest.post("$origin/api/bmi")
+            .body("""
+                {
+                   "weight":"$weight",
+                   "height":$height,
+                   "bmiCalculator":$bmiCalculator,
+                   "timestamp":"$timestamp",
+                   "userId":$userId
+                }
+            """.trimIndent())
+            .asJson()
+    }
+    fun retrieveBmiByBmiId(id: Int): HttpResponse<String> {
+        return Unirest.get("$origin/api/bmi/$id").asString()
+    }
+    fun deleteBmiByBmiId(id: Int): HttpResponse<String> {
+        return Unirest.delete("$origin/api/bmi/$id").asString()
+    }
+
+    //helper function to delete an activity by activity id
+    fun deleteBmiByUserId(id: Int): HttpResponse<String> {
+        return Unirest.delete("$origin/api/users/$id").asString()
+    }
 
 }
