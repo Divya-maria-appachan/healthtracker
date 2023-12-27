@@ -20,15 +20,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card">
-          <h5 class="card-header">Total BMI</h5>
-          <div class="card-body">
-            <h5 class="card-title">{{bmi.length}} bmi</h5>
-            <a href="/bmi" class="btn btn-primary">More Details...</a>
-          </div>
-        </div>
-      </div>
+
       <div class="col">
         <div class="card">
           <h5 class="card-header">Tips</h5>
@@ -50,7 +42,6 @@ app.component('home-page',
       data: () => ({
         users: [],
         activities: [],
-        bmi: [],
         healthtips: []
       }),
       created() {
@@ -60,9 +51,6 @@ app.component('home-page',
         axios.get("/api/activities")
             .then(res => this.activities = res.data)
             .catch(() => alert("Error while fetching activities"));
-        axios.get("/api/bmi")
-            .then(res => this.bmi = res.data)
-            .catch(() => alert("Error while fetching bmi"));
         axios.get("/api/tip")
             .then(res => this.healthtips = res.data)
             .catch(() => alert("Error while fetching tip"));

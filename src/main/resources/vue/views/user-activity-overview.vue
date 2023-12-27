@@ -39,7 +39,7 @@
               <option selected value="Walking">Walking</option>
               <option value="Cycling">Cycling</option>
               <option value="Running">Running</option>
-              <option value="Climbing">Climbing</option>
+              <option value="Climbing">Swimming</option>
             </select>
           </div>
 
