@@ -152,12 +152,12 @@ app.component("user-activity-overview",{
     formData: []
   }),
   created() {
-    this.userId = this.$javalin.pathParams["user-id"];
-    console.log(this.userId)
-    axios.get(`/api/users/${this.userId}/activities`)
+    const userId = this.$javalin.pathParams["user-id"];
+    console.log(userId)
+    axios.get(`/api/users/${userId}/activities`)
         .then(res => this.activities = res.data)
         .catch(() => console.log("Error while fetching activities"));
-    axios.get(`/api/users/${this.userId}/achievements`)
+    axios.get(`/api/users/${userId}/achievements`)
         .then(res => {
               this.achievements = res.data
             }
