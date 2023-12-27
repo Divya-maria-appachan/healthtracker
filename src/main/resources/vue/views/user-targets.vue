@@ -156,20 +156,17 @@ app.component("user-targets", {
     updateUserTargets: function () {
       const userId = this.$javalin.pathParams["user-id"];
       const url = `/api/users/${userId}/targets`
-      const data={
-        targetSleep: parseInt(document.getElementById("targetSleep").value)
-        ,targetBmi: parseInt(document.getElementById("targetBmi").value),
 
-        date: new Date().toISOString(),
-        userId: userId}
       axios.patch(url,
-          {
-            data
+          {targetSleep: parseInt(document.getElementById("targetSleep").value),
+            targetBmi: parseInt(document.getElementById("targetBmi").value),
+            date: new Date().toISOString(),
+            userId: userId
           })
-          .then(response =>
-          {this.targets.pop()
-            this.targets.push(data)
-            this.disabled=true})
+          .then(response =>{
+              this.targets.push(response.data)
+                this.hideForm= true;
+                this.disabled=true;})
           .catch(error => {
             console.log(error)
           })
