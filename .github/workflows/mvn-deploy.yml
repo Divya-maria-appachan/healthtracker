@@ -44,4 +44,4 @@ jobs:
          name: Deploy to Railway
          env:
            RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }} 
-           service: healthtracker
+           service: 0d1b8167-dd74-45ca-8463-c1231405ed2f
