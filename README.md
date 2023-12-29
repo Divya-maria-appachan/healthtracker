@@ -56,12 +56,7 @@ User-sleep duration:Used to track the sleep duration over a period.
 User-Target: Set target for sleep duration and BMI for self motivation.
 
 User-Achivement: Used to count the achievements.
-## Roadmap
 
-Planned features for future releases include:
-
-- User authentication and security enhancements.
-- Improved user interface and user experience.
 
   ## Contact
 
