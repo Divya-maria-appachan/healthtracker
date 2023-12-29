@@ -84,7 +84,7 @@
           <tbody>
           <tr>
             <th scope="row">{{ w.duration }} Hrs</th>
-            <td>{{ new Date(w.date).toLocaleDateString('en-us', { weekday: "long", year:"numeric", month:"short", day:"numeric"}) }}</td>
+            <td>{{ new Date(w.date).toLocaleDateString('en-us', {  year:"numeric", month:"short", day:"numeric"}) }}</td>
             <td class="float-right">
               <button rel="tooltip" title="Update" @click=getData(w) data-toggle="modal" data-target="#updateModal"
                       class="btn btn-info btn-simple btn-link"

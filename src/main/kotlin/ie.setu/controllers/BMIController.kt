@@ -4,7 +4,9 @@ import ie.setu.domain.repository.BmiDAO
 import ie.setu.domain.repository.UserDAO
 import ie.setu.utils.jsonToObject
 import io.javalin.http.Context
-
+/**
+ *  Controller for handling Bmi-related operations
+ */
 object BMIController {
     private val userDao = UserDAO()
     private var bmiDAO = BmiDAO()

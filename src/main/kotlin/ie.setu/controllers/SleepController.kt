@@ -5,7 +5,9 @@ import ie.setu.domain.repository.SleepDAO
 import ie.setu.domain.repository.UserDAO
 import ie.setu.utils.jsonToObject
 import io.javalin.http.Context
-
+/**
+ *  Controller for handling sleep-related operations
+ */
 object SleepController {
 
     private val userDao = UserDAO()

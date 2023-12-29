@@ -132,6 +132,24 @@ class HealthTipDAOTest {
             }
 
         }
+    @Nested
+    inner class deleteTips {
+
+        @Test
+        fun `update a non-existing health tip in the table`() {
+            transaction {
+                val healthTipDAO = HealthTipDAO()
+                SchemaUtils.create(HealthTips)
+
+                // Act: Try to update a non-existing health tip
+                val newHealthTip = healthTip3
+                val updatedRows = healthTipDAO.delete(2)
+
+                // Assert: The update should not affect any rows, and no rows should be updated
+                assertEquals(0, updatedRows)
+            }
+        }
+    }
 
     }
 

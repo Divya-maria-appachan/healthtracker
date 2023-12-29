@@ -12,7 +12,9 @@ import ie.setu.utils.jsonToObject
 import io.javalin.http.Context
 import org.joda.time.LocalDateTime
 
-
+/**
+ *  Controller for handling Activity-related operations
+ */
 object ActivityController {
 
     private val userDao = UserDAO()

@@ -80,10 +80,10 @@
               <button rel="tooltip" title="Delete"
                       class="btn btn-info btn-simple btn-link"
                       @click="deleteActivity(activity, index)">
-                <b-icon-trash-fill variant="secondary" class="mr-2"></b-icon-trash-fill>
+                <i class="fas fa-trash" aria-hidden="true"></i>
               </button>
             </div>
-            <span>Covered {{activity.duration}} ms</span>
+
             <span> {{activity.calories}} calories burned</span>
             <span> Started at {{activity.started}} </span>
 
@@ -109,7 +109,7 @@
         <div class="container-fluid py-2">
           <div class="d-flex flex-row flex-nowrap">
             <div v-for="achievement in achievements">
-              <div class="card card-body bg-secondary text-white" style="margin: 15px">
+              <div class="card card-body bg-info text-white" style="margin: 15px">
                 <h4 class="float-left"><b-icon-trophy class="mr-2"></b-icon-trophy>
                   RANK {{achievement.rank}}
                 </h4>
@@ -123,7 +123,7 @@
                 <h4 class="float-left"><b-icon-trophy class="mr-2"></b-icon-trophy>
                   RANK {{achievements.length + rank}}
                 </h4>
-                <span class="float-left">Yet to be Achieved <b-icon-lock-fill class="mr-2"></b-icon-lock-fill></span>
+                <span class="float-left">Pending <b-icon-lock-fill class="mr-2"></b-icon-lock-fill></span>
                 <span style="text-align:center" v-if="achievements.length + rank === 1">(60 ms)</span>
                 <span style="text-align:center" v-if="achievements.length + rank === 2">(120 ms)</span>
                 <span style="text-align:center" v-if="achievements.length + rank === 3">(180 ms)</span>

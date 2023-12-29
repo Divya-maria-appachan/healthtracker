@@ -5,7 +5,9 @@ import ie.setu.domain.repository.HealthTipDAO
 import ie.setu.utils.jsonToObject
 import io.javalin.http.Context
 
-
+/**
+ *  Controller for handling Tips-related operations
+ */
 object HealthTipController {
     private val healthTipsDao = HealthTipDAO()
     fun addTips(ctx: Context) {

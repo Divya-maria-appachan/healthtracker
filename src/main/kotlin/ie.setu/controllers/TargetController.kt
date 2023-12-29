@@ -8,7 +8,9 @@ import ie.setu.domain.repository.TargetDAO
 import ie.setu.domain.repository.UserDAO
 import ie.setu.utils.jsonToObject
 import io.javalin.http.Context
-
+/**
+ *  Controller for handling target-related operations
+ */
 object TargetController {
 
     private val userDao = UserDAO()
@@ -31,7 +33,9 @@ object TargetController {
         }
     }
 
-
+    /**
+     *  List to store ranks for achievements
+     */
     fun addTarget(ctx: Context) {
         val mapper = jacksonObjectMapper()
             .registerModule(JodaModule())
