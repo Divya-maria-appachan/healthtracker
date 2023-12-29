@@ -1,10 +1,13 @@
 # HealthTracker Application
-Health Tracker app version: V5.1  is a Kotlin-based web application that provides features for tracking user health and wellness. It offers functionalities such as user management, BMI calculation, random health tips, and user activity tracking.
+Health Tracker app version: V5.1  is a Kotlin-based web application that provides features for tracking user health and wellness. It offers functionalities such as user management, BMI calculation, random health tips,User-sleep Tracker,User-Target,User-sleep duration and user activity tracking.
 ## Features
 - User Management: Add, list, and manage users in the system.
 - BMI Calculator: Calculate and track BMI (Body Mass Index) for users.
 - Health Tips: Provide health tips in a random manner to users.
 - User Activity Tracking: Track and manage user activities.
+- User-sleep duration:Track the sleep duration over a period.
+- User-Target: Set target for sleep duration and BMI for self motivation.
+- User-Achivement: Display to count the achievements.
 ## Prerequisites
 
 Before you get started, make sure you have the following prerequisites:
@@ -48,6 +51,11 @@ Get Random Tip: Access random health tips through the API.
 User Activity Tracking
 
 Track Activity: Log and manage user activities.
+User-sleep duration:Used to track the sleep duration over a period.
+
+User-Target: Set target for sleep duration and BMI for self motivation.
+
+User-Achivement: Used to count the achievements.
 ## Roadmap
 
 Planned features for future releases include:
