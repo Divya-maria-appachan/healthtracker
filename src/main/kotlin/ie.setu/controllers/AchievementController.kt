@@ -3,7 +3,9 @@ package ie.setu.controllers
 import ie.setu.domain.repository.AchievementDAO
 import ie.setu.domain.repository.UserDAO
 import io.javalin.http.Context
-
+/**
+ *  Controller for handling Achievements-related operations
+ */
 object AchievementController {
 
     private val userDao = UserDAO()

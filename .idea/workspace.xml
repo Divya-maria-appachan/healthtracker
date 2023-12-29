@@ -4,14 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d9ce8a4-8a5f-498a-94a9-37768e2515b9" name="Changes" comment="Add BMI operation Frond end">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/repositary/TargetDAOTest.kt" afterDir="false" />
+    <list default="true" id="6d9ce8a4-8a5f-498a-94a9-37768e2515b9" name="Changes" comment="Add BMI and healthTips test cases">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/css/coverage.css" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/css/coverage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/css/idea.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/css/idea.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_CLASS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_LINE.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_LINE_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_METHOD.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_NAME_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/js/highlight.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/js/highlight.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/js/highlightjs-line-numbers.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/js/highlightjs-line-numbers.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_BLOCK.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_BLOCK.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_BLOCK_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_CLASS.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_CLASS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_CLASS_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_LINE.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_LINE.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_LINE_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_LINE_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_METHOD.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_METHOD.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_METHOD_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_NAME_DESC.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_NAME_DESC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/AchievementController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/AchievementController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/ActivityController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/ActivityController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/BMIController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/BMIController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/HealthTipController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/HealthTipController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/SleepController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/SleepController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/TargetController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/TargetController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ie.setu/controllers/UserController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/vue/views/user-activity-overview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/views/user-activity-overview.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/views/user-targets.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/views/user-targets.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/HealthTrackerControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/controllers/HealthTrackerControllerTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/Fixtures.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/Fixtures.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/testUtility.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/helpers/testUtility.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/views/user-bmi-overview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/views/user-bmi-overview.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/views/user-sleep.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/views/user-sleep.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/ie/setu/repositary/HealthTipDA0Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ie/setu/repositary/HealthTipDA0Test.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +53,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
     <option name="OUTPUT_DIRECTORY" value="C:\Users\divya\SETU\2023-2024\agile-workspace\healthtrackerrest\htmlReport" />
   </component>
   <component name="FileColors">
@@ -39,7 +74,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="healthtracker_V-8" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,27 +108,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "healthtracker__V.9",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "swagger",
-    "ts.external.directory.path": "C:\\dev\\IntelliJ IDEA 2023.2.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;healthtrackerV10.0&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;swagger&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\dev\\IntelliJ IDEA 2023.2.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Options API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Options API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\divya\SETU\2023-2024\agile-workspace\healthtrackerrest\src\test\kotlin\helpers" />
@@ -105,16 +140,41 @@
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.AppKt">
-    <configuration name="AchievementDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BmiDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="healthtrackerrest" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ie.setu.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+        <pattern>
+          <option name="PATTERN" value="ie.setu.domain.repository.BmiDAO" />
+          <option name="ENABLED" value="true" />
+        </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ie.setu.repository" />
-      <option name="MAIN_CLASS_NAME" value="ie.setu.repository.AchievementDAOTest" />
+      <option name="MAIN_CLASS_NAME" value="ie.setu.repository.BmiDAOTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HealthTipDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="healthtrackerrest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ie.setu.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="ie.setu.domain.repository.HealthTipDAO" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ie.setu.repository" />
+      <option name="MAIN_CLASS_NAME" value="ie.setu.repository.HealthTipDAOTest" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -125,26 +185,36 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ie.setu.repository.*" />
+          <option name="ENABLED" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="ie.setu.domain.repository.SleepDAO" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ie.setu.repository" />
       <option name="MAIN_CLASS_NAME" value="ie.setu.repository.SleepDAOTest" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TargetDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TargetDAOTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="healthtrackerrest" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ie.setu.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+        <pattern>
+          <option name="PATTERN" value="ie.setu.domain.repository.TargetDAO" />
+          <option name="ENABLED" value="true" />
+        </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ie.setu.repository" />
       <option name="MAIN_CLASS_NAME" value="ie.setu.repository.TargetDAOTest" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -157,9 +227,14 @@
           <option name="PATTERN" value="ie.setu.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+        <pattern>
+          <option name="PATTERN" value="ie.setu.domain.repository.UserDAO" />
+          <option name="ENABLED" value="true" />
+        </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ie.setu.repository" />
       <option name="MAIN_CLASS_NAME" value="ie.setu.repository.UserDAOTest" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -175,10 +250,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.AppKt" />
-        <item itemvalue="JUnit.TargetDAOTest" />
-        <item itemvalue="JUnit.AchievementDAOTest" />
+        <item itemvalue="JUnit.HealthTipDAOTest" />
         <item itemvalue="JUnit.UserDAOTest" />
         <item itemvalue="JUnit.SleepDAOTest" />
+        <item itemvalue="JUnit.BmiDAOTest" />
       </list>
     </recent_temporary>
   </component>
@@ -210,6 +285,9 @@
       <workItem from="1702547066012" duration="15001000" />
       <workItem from="1703280046004" duration="30398000" />
       <workItem from="1703607796311" duration="49063000" />
+      <workItem from="1703773220523" duration="7586000" />
+      <workItem from="1703796291878" duration="744000" />
+      <workItem from="1703797086679" duration="12293000" />
     </task>
     <task id="LOCAL-00001" summary="v1.0">
       <option name="closed" value="true" />
@@ -417,33 +495,36 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/healthtrackerrest$ActivityDAOTest.ic" NAME="ActivityDAOTest Coverage Results" MODIFIED="1703696798886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>ie.setu.repository.*</FILTER>
+    <SUITE FILE_PATH="coverage/healthtrackerrest$ActivityDAOTest.ic" NAME="ActivityDAOTest Coverage Results" MODIFIED="1703799226786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ie.setu.domain.repository.ActivityDAO</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/healthtrackerrest$UserDAOTest.ic" NAME="UserDAOTest Coverage Results" MODIFIED="1703696952294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/healthtrackerrest$UserDAOTest.ic" NAME="UserDAOTest Coverage Results" MODIFIED="1703799924866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ie.setu.repository.*</FILTER>
+      <FILTER>ie.setu.domain.repository.UserDAO</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/healthtrackerrest$AppKt.ic" NAME="AppKt Coverage Results" MODIFIED="1699309687894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/healthtrackerrest$AchievementDAOTest.ic" NAME="AchievementDAOTest Coverage Results" MODIFIED="1703696974480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/healthtrackerrest$AchievementDAOTest.ic" NAME="AchievementDAOTest Coverage Results" MODIFIED="1703798962844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ie.setu.domain.repository.AchievementDAO</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/healthtrackerrest$ie_setu_domain_repository_in_healthtrackerrest.ic" NAME="ie.setu.domain.repository in healthtrackerrest Coverage Results" MODIFIED="1703764619608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ie.setu.domain.repository.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/healthtrackerrest$SleepDAOTest.ic" NAME="SleepDAOTest Coverage Results" MODIFIED="1703799760842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ie.setu.domain.repository.SleepDAO</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/healthtrackerrest$HealthTipDAOTest.ic" NAME="HealthTipDAOTest Coverage Results" MODIFIED="1703800194059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ie.setu.repository.*</FILTER>
+      <FILTER>ie.setu.domain.repository.HealthTipDAO</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/healthtrackerrest$HealthTipDAOTest_ReadHealthtips_get_random_health_tip_from_a_table_with_one_entry.ic" NAME="HealthTipDAOTest$ReadHealthtips.get random health tip from a table with one entry Coverage Results" MODIFIED="1699142722862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>ie.setu.repository.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/healthtrackerrest$HealthTipDAOTest.ic" NAME="HealthTipDAOTest Coverage Results" MODIFIED="1703696883177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>ie.setu.repository.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/healthtrackerrest$SleepDAOTest.ic" NAME="SleepDAOTest Coverage Results" MODIFIED="1703696906625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>ie.setu.repository.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/healthtrackerrest$HealthTrackerControllerTest.ic" NAME="HealthTrackerControllerTest Coverage Results" MODIFIED="1703696416590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/healthtrackerrest$HealthTrackerControllerTest.ic" NAME="HealthTrackerControllerTest Coverage Results" MODIFIED="1703798822284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ie.setu.controllers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/healthtrackerrest$BmiDAOTest.ic" NAME="BmiDAOTest Coverage Results" MODIFIED="1703696863360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/healthtrackerrest$BmiDAOTest.ic" NAME="BmiDAOTest Coverage Results" MODIFIED="1703799338073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ie.setu.repository.*</FILTER>
+      <FILTER>ie.setu.domain.repository.BmiDAO</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/healthtrackerrest$TargetDAOTest.ic" NAME="TargetDAOTest Coverage Results" MODIFIED="1703696997859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/healthtrackerrest$TargetDAOTest.ic" NAME="TargetDAOTest Coverage Results" MODIFIED="1703799816873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ie.setu.repository.*</FILTER>
+      <FILTER>ie.setu.domain.repository.TargetDAO</FILTER>
     </SUITE>
   </component>
 </project>

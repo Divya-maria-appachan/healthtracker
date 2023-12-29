@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="list-group list-group-flush">
-      <h3 class="col-6">BMI Tracker</h3>
+
       <table class="table">
         <thead>
         <tr>

@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
-  <title>Coverage Report > BMIController</title>
+  <title>Coverage Report > ActivityController</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -22,7 +22,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">ie.setu.controllers</a>
 </div>
 
-<h1>Coverage Summary for Class: BMIController (ie.setu.controllers)</h1>
+<h1>Coverage Summary for Class: ActivityController (ie.setu.controllers)</h1>
 
 <table class="coverageStats">
 
@@ -38,59 +38,58 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">BMIController</td>
+  <td class="name">ActivityController</td>
 <td class="coverageStat">
   <span class="percent">
-    14.3%
+    100%
   </span>
   <span class="absValue">
-    (1/7)
+    (10/10)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    6.1%
+    82.3%
   </span>
   <span class="absValue">
-    (2/33)
+    (65/79)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">BMIController$calculateBmi$$inlined$jsonToObject$1</td>
-<td class="coverageStat">
-  <span class="percent">
-    0%
-  </span>
-  <span class="absValue">
-    (0/1)
-  </span>
-</td>
-<td class="coverageStat">
-  <span class="percent">
-    0%
-  </span>
-  <span class="absValue">
-    (0/1)
-  </span>
-</td>
+    <td class="name">ActivityController$addActivity$$inlined$jsonToObject$1</td>
+  </tr>
+  <tr>
+    <td class="name">ActivityController$getActivitiesByUserId$$inlined$jsonToObject$1</td>
+  </tr>
+  <tr>
+    <td class="name">ActivityController$getActivitiesByUserId$$inlined$jsonToObject$2</td>
+  </tr>
+  <tr>
+    <td class="name">ActivityController$getActivitiesByUserId$$inlined$jsonToObject$3</td>
+  </tr>
+  <tr>
+    <td class="name">ActivityController$getActivitiesByUserId$$inlined$jsonToObject$4</td>
+  </tr>
+  <tr>
+    <td class="name">ActivityController$updateActivity$$inlined$jsonToObject$1</td>
   </tr>
 <tr>
   <td class="name"><strong>Total</strong></td>
 <td class="coverageStat">
   <span class="percent">
-    12.5%
+    100%
   </span>
   <span class="absValue">
-    (1/8)
+    (10/10)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    5.9%
+    82.3%
   </span>
   <span class="absValue">
-    (2/34)
+    (65/79)
   </span>
 </td>
 </tr>
@@ -102,76 +101,164 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package ie.setu.controllers
-&nbsp;import ie.setu.domain.Bmi
-&nbsp;import ie.setu.domain.repository.BmiDAO
+&nbsp;
+&nbsp;import com.fasterxml.jackson.databind.SerializationFeature
+&nbsp;import com.fasterxml.jackson.datatype.joda.JodaModule
+&nbsp;import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+&nbsp;import ie.setu.domain.Achievement
+&nbsp;import ie.setu.domain.Activity
+&nbsp;import ie.setu.domain.repository.AchievementDAO
+&nbsp;import ie.setu.domain.repository.ActivityDAO
 &nbsp;import ie.setu.domain.repository.UserDAO
 &nbsp;import ie.setu.utils.jsonToObject
 &nbsp;import io.javalin.http.Context
+&nbsp;import org.joda.time.LocalDateTime
 &nbsp;
-&nbsp;object BMIController {
+&nbsp;
+&nbsp;object ActivityController {
+&nbsp;
 <b class="fc">&nbsp;    private val userDao = UserDAO()</b>
-<b class="fc">&nbsp;    private var bmiDAO = BmiDAO()</b>
-&nbsp;    fun calculateBmi(ctx: Context) {
-<b class="nc">&nbsp;        val bmi: Bmi = jsonToObject(ctx.body())</b>
-<b class="nc">&nbsp;        val userId = userDao.findById(bmi.userId)</b>
-<b class="nc">&nbsp;        if (userId != null) {</b>
-<b class="nc">&nbsp;            val bmiId = bmiDAO.save(bmi)</b>
-<b class="nc">&nbsp;            bmi.id = bmiId</b>
-<b class="nc">&nbsp;            ctx.json(bmi)</b>
-<b class="nc">&nbsp;            ctx.status(201)</b>
+<b class="fc">&nbsp;    private val activityDAO = ActivityDAO()</b>
+<b class="fc">&nbsp;    private val achievementDao = AchievementDAO()</b>
+<b class="fc">&nbsp;    val ranks = mutableListOf&lt;Int&gt;()</b>
+&nbsp;    fun getAllActivities(ctx: Context) {
+<b class="fc">&nbsp;        val activities = activityDAO.getAll()</b>
+<b class="fc">&nbsp;        if (activities.size != 0) {</b>
+<b class="fc">&nbsp;            ctx.status(200)</b>
 &nbsp;        } else {
 <b class="nc">&nbsp;            ctx.status(404)</b>
+&nbsp;        }
+<b class="fc">&nbsp;        ctx.json(activities)</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    fun saveAchievement(rank: Int, achievement: Achievement) {
+<b class="fc">&nbsp;        if (rank !in ranks) {</b>
+<b class="fc">&nbsp;            achievementDao.save(achievement)</b>
+&nbsp;
 &nbsp;        }
 &nbsp;    }
 &nbsp;
-&nbsp;    fun getAllBmi(ctx: Context) {
-<b class="nc">&nbsp;        val bimes = bmiDAO.getAll()</b>
-<b class="nc">&nbsp;        if (bimes.size != 0) {</b>
-<b class="nc">&nbsp;            ctx.status(200)</b>
-&nbsp;        } else {
-<b class="nc">&nbsp;            ctx.status(404)</b>
-&nbsp;        }
-<b class="nc">&nbsp;        ctx.json(bimes)</b>
-&nbsp;    }
+&nbsp;        fun getActivitiesByUserId(ctx: Context) {
+<b class="fc">&nbsp;            if (userDao.findById(ctx.pathParam(&quot;user-id&quot;).toInt()) != null) {</b>
+<b class="fc">&nbsp;                val activities = activityDAO.findByUserId(ctx.pathParam(&quot;user-id&quot;).toInt())</b>
+<b class="fc">&nbsp;                if (activities.isNotEmpty()) {</b>
+<b class="fc">&nbsp;                    var totalduration = 0.0</b>
+<b class="fc">&nbsp;                    for (activity in activities) {</b>
+<b class="fc">&nbsp;                        totalduration += activity.duration</b>
+&nbsp;                    }
+<b class="fc">&nbsp;                    val achievement1: Achievement = jsonToObject(</b>
+<b class="fc">&nbsp;                        &quot;&quot;&quot;{&quot;name&quot;: &quot;60 ms&quot;, &quot;rank&quot;: 1, &quot;date&quot;: &quot;${LocalDateTime.now()}&quot;, &quot;userId&quot;: ${</b>
+<b class="fc">&nbsp;                            ctx.pathParam(&quot;user-id&quot;)</b>
+&nbsp;                        }}&quot;&quot;&quot;
+&nbsp;                    )
+<b class="fc">&nbsp;                    val achievement2: Achievement = jsonToObject(</b>
+<b class="fc">&nbsp;                        &quot;&quot;&quot;{&quot;name&quot;: &quot;120 ms&quot;, &quot;rank&quot;: 2, &quot;date&quot;: &quot;${LocalDateTime.now()}&quot;, &quot;userId&quot;: ${</b>
+<b class="fc">&nbsp;                            ctx.pathParam(&quot;user-id&quot;)</b>
+&nbsp;                        }}&quot;&quot;&quot;
+&nbsp;                    )
+<b class="fc">&nbsp;                    val achievement3: Achievement = jsonToObject(</b>
+<b class="fc">&nbsp;                        &quot;&quot;&quot;{&quot;name&quot;: &quot;180 ms&quot;, &quot;rank&quot;: 3, &quot;date&quot;: &quot;${LocalDateTime.now()}&quot;, &quot;userId&quot;: ${</b>
+<b class="fc">&nbsp;                            ctx.pathParam(&quot;user-id&quot;)</b>
+&nbsp;                        }}&quot;&quot;&quot;
+&nbsp;                    )
+<b class="fc">&nbsp;                    val achievement4: Achievement = jsonToObject(</b>
+<b class="fc">&nbsp;                        &quot;&quot;&quot;{&quot;name&quot;: &quot;240 ms&quot;, &quot;rank&quot;: 4, &quot;date&quot;: &quot;${LocalDateTime.now()}&quot;, &quot;userId&quot;: ${</b>
+<b class="fc">&nbsp;                            ctx.pathParam(&quot;user-id&quot;)</b>
+&nbsp;                        }}&quot;&quot;&quot;
+&nbsp;                    )
 &nbsp;
-&nbsp;    fun getByBmiId(ctx: Context) {
-<b class="nc">&nbsp;        val bimes = bmiDAO.findByBmiId((ctx.pathParam(&quot;bmi-id&quot;).toInt()))</b>
-<b class="nc">&nbsp;        if (bimes != null) {</b>
-<b class="nc">&nbsp;            ctx.json(bimes)</b>
-<b class="nc">&nbsp;            ctx.status(200)</b>
-&nbsp;        } else {
-<b class="nc">&nbsp;            ctx.status(404)</b>
-&nbsp;        }
-&nbsp;    }
-<b class="nc">&nbsp;    fun deleteBmiId(ctx: Context){</b>
-<b class="nc">&nbsp;        if (bmiDAO.deleteByBmiId(ctx.pathParam(&quot;bmi-id&quot;).toInt()) != 0)</b>
-<b class="nc">&nbsp;            ctx.status(204)</b>
-&nbsp;        else
-<b class="nc">&nbsp;            ctx.status(404)</b>
-&nbsp;    }
-&nbsp;    fun getBmiByUserId(ctx: Context) {
-<b class="nc">&nbsp;        if (userDao.findById(ctx.pathParam(&quot;user-id&quot;).toInt()) != null) {</b>
-<b class="nc">&nbsp;            val bmies = bmiDAO.findByUserId(ctx.pathParam(&quot;user-id&quot;).toInt())</b>
-<b class="nc">&nbsp;            if (bmies.isNotEmpty()) {</b>
-<b class="nc">&nbsp;                ctx.json(bmies)</b>
-<b class="nc">&nbsp;                ctx.status(200)</b>
+<b class="fc">&nbsp;                    val achievements = achievementDao.findByUserId(ctx.pathParam(&quot;user-id&quot;).toInt())</b>
+&nbsp;
+<b class="fc">&nbsp;                    if (achievements.isNotEmpty()) {</b>
+<b class="nc">&nbsp;                        for (achievement in achievements) {</b>
+<b class="nc">&nbsp;                            ranks.add(achievement.rank)</b>
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;
+<b class="fc">&nbsp;                    if (totalduration &gt;= 20.0 &amp;&amp; totalduration &lt; 60.0) {</b>
+<b class="nc">&nbsp;                        saveAchievement(1, achievement1)</b>
+<b class="fc">&nbsp;                    } else if (totalduration &gt;= 60.0 &amp;&amp; totalduration &lt; 120.0) {</b>
+<b class="fc">&nbsp;                        saveAchievement(1, achievement1)</b>
+<b class="fc">&nbsp;                        saveAchievement(2, achievement2)</b>
+<b class="nc">&nbsp;                    } else if (totalduration &gt;= 120.0 &amp;&amp; totalduration &lt; 180.0) {</b>
+<b class="nc">&nbsp;                        saveAchievement(1, achievement1)</b>
+<b class="nc">&nbsp;                        saveAchievement(2, achievement2)</b>
+<b class="nc">&nbsp;                        saveAchievement(3, achievement3)</b>
+<b class="nc">&nbsp;                    } else if (totalduration &gt;= 240.0) {</b>
+<b class="nc">&nbsp;                        saveAchievement(1, achievement1)</b>
+<b class="nc">&nbsp;                        saveAchievement(2, achievement2)</b>
+<b class="nc">&nbsp;                        saveAchievement(3, achievement3)</b>
+<b class="nc">&nbsp;                        saveAchievement(4, achievement4)</b>
+&nbsp;                    }
+&nbsp;
+<b class="fc">&nbsp;                    val mapper = jacksonObjectMapper()</b>
+<b class="fc">&nbsp;                        .registerModule(JodaModule())</b>
+<b class="fc">&nbsp;                        .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)</b>
+<b class="fc">&nbsp;                    ctx.json(mapper.writeValueAsString(activities))</b>
+<b class="fc">&nbsp;                    ctx.status(200)</b>
+&nbsp;                } else {
+<b class="fc">&nbsp;                    ctx.status(404)</b>
+&nbsp;                }
+&nbsp;            } else {
+<b class="fc">&nbsp;                ctx.status(404)</b>
 &nbsp;            }
-&nbsp;            else{
-<b class="nc">&nbsp;                ctx.status(404)</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        fun getActivityById(ctx: Context) {
+<b class="fc">&nbsp;            val activity = activityDAO.findByActivityId((ctx.pathParam(&quot;activity-id&quot;).toInt()))</b>
+<b class="fc">&nbsp;            if (activity != null) {</b>
+<b class="fc">&nbsp;                ctx.json(activity)</b>
+<b class="fc">&nbsp;                ctx.status(200)</b>
+&nbsp;            } else {
+<b class="fc">&nbsp;                ctx.status(404)</b>
 &nbsp;            }
 &nbsp;        }
-&nbsp;        else{
-<b class="nc">&nbsp;            ctx.status(404)</b>
+&nbsp;
+&nbsp;        fun addActivity(ctx: Context) {
+<b class="fc">&nbsp;            val activity: Activity = jsonToObject(ctx.body())</b>
+<b class="fc">&nbsp;            val userId = userDao.findById(activity.userId)</b>
+<b class="fc">&nbsp;            if (userId != null) {</b>
+<b class="fc">&nbsp;                val activityId = activityDAO.save(activity)</b>
+<b class="fc">&nbsp;                activity.id = activityId</b>
+<b class="fc">&nbsp;                ctx.json(activity)</b>
+<b class="fc">&nbsp;                ctx.status(201)</b>
+&nbsp;            } else {
+<b class="fc">&nbsp;                ctx.status(404)</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        fun deleteActivityByActivityId(ctx: Context) {
+<b class="fc">&nbsp;            if (activityDAO.deleteByActivityId(ctx.pathParam(&quot;activity-id&quot;).toInt()) != 0)</b>
+<b class="fc">&nbsp;                ctx.status(204)</b>
+&nbsp;            else
+<b class="fc">&nbsp;                ctx.status(404)</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        fun deleteActivityByUserId(ctx: Context) {
+<b class="fc">&nbsp;            if (activityDAO.deleteByUserId(ctx.pathParam(&quot;user-id&quot;).toInt()) != 0)</b>
+<b class="nc">&nbsp;                ctx.status(204)</b>
+&nbsp;            else
+<b class="fc">&nbsp;                ctx.status(404)</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        fun updateActivity(ctx: Context) {
+<b class="fc">&nbsp;            val activity: Activity = jsonToObject(ctx.body())</b>
+<b class="fc">&nbsp;            if (activityDAO.updateByActivityId(</b>
+<b class="fc">&nbsp;                    activityId = ctx.pathParam(&quot;activity-id&quot;).toInt(),</b>
+<b class="fc">&nbsp;                    activityToUpdate = activity</b>
+&nbsp;                ) != 0
+&nbsp;            )
+<b class="fc">&nbsp;                ctx.status(204)</b>
+&nbsp;            else
+<b class="fc">&nbsp;                ctx.status(404)</b>
 &nbsp;        }
 &nbsp;    }
-&nbsp;    fun deleteBmiByUserId(ctx: Context){
-<b class="nc">&nbsp;        if (bmiDAO.deleteByUserId(ctx.pathParam(&quot;user-id&quot;).toInt()) != 0)</b>
-<b class="nc">&nbsp;            ctx.status(204)</b>
-&nbsp;        else
-<b class="nc">&nbsp;            ctx.status(404)</b>
-&nbsp;    }
 &nbsp;
-&nbsp;}
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 </code>
 </pre>
 </div>
@@ -195,7 +282,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-11-07 14:14</div>
+    <div style="float:right;">generated on 2023-12-28 21:51</div>
 </div>
 </body>
 </html>
